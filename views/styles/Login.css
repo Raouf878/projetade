@@ -1,0 +1,113 @@
+*{
+    margin:0;
+    padding:0;
+
+}
+body{
+    background-color: #ebebeb;
+    font-family: Mukta;
+    cursor:url('/img/sword.png'), auto;
+}
+
+.login-container{
+    width:400px;
+    background-color: white;
+    height:600px;
+    margin: auto;
+   
+    display: flex;
+    margin-top:50px;
+    border-radius: 15px;
+    z-index: 1;
+    
+   
+    
+}
+.black_container{
+    width:403px;
+    background-color: black;
+    height:599px;
+    position:  absolute;
+    margin-top:5px;
+    border-radius: 18px;
+    z-index: -1;
+    
+
+}
+.invalid-input {
+  border: 2px solid red;
+}
+.form {
+    width: 400px;
+    margin: 0 auto;
+
+    
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 3px;
+    opacity: 0.5;
+    margin-left:29px;
+    font-size:14px;
+  }
+  
+  input[type="email"],
+  input[type="password"],
+  input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    margin: 0 auto;
+  }
+  
+  button[type="submit"] {
+    background-color: black;
+    font-family: Mukta;
+    font-size:15px;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    width:90%;
+    border-radius: 10px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    margin-top:40px;
+    transition: all 0.4s;
+  }
+  button[type="submit"]:hover{
+    background-color:#B4A195;
+  }
+  .container {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  .info-fields{
+    margin-bottom: 50px;
+  }
+.login-title{
+    text-align: center;
+    font-size: 25px;
+    font-weight: 800;
+    margin-top:20px;
+}
+
+@media screen and (max-width: 450px) {
+    .login-container{
+        width:100%;
+        height:100%;
+        margin: auto;
+        position: absolute;
+        border-radius: 0px;
+        
+        
+    }
+    .black_container{
+        display: none;
+    }
+   
+}

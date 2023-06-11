@@ -1,0 +1,358 @@
+*{
+  margin:0;
+  padding:0;
+
+}
+body{
+  background-color:#ebebeb;
+  font-family: 'Space Mono';
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+  cursor:url('/img/sword.png'), auto;
+  
+}
+p{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 600px) {
+  main{
+    overflow: hidden;
+    height: 100%;
+  }
+  .header{
+        width: 100%;
+        height:170px;
+        background-color: black;
+        border-bottom-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-top: 10px;
+        background-image: url('../img/mosaic-back.jpg');
+        background-size: contain;
+    }
+  .welcome-txt,
+  .team-txt,
+  .unit-txt{
+        font-weight: 800;
+        font-size: 23px; 
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+        text-align: center;
+        margin-left: 10px;
+        color: black;
+        margin-top: 5px;
+    }
+  .teambr-txt{
+        font-weight: 800;
+        font-size: 23px; 
+        border-bottom: 2px;
+        text-align: left;
+        margin-left: 10px;
+        color: black;
+        margin-top: 5px;
+        width: 90%;
+       
+
+    }
+  .border-image{
+        width: 96%;
+        margin: auto;
+        height:5px;
+        background-image:url('../img/mosaic-back.jpg');
+        background-size:50%;
+        border-radius: 20px;
+        
+       
+        
+    }
+    .wrapper {
+      display: flex;
+      grid-gap: 1rem;
+      max-width: 768px;
+      width: 100%;
+      overflow-x: auto;
+      scroll-snap-type: x;
+      cursor: grab;
+      scroll-behavior: smooth;
+      scrollbar-width: none; /* for firefox */
+    }
+      
+  .wrapper::-webkit-scrollbar { /* for chrome */
+        display: none;
+      }
+      
+  .slider {
+        min-width: calc(40% - .5rem);
+        height:60px;
+        aspect-ratio: 1 / 1;
+        background: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        font-size: 9px;
+        scroll-snap-align: start;
+        font-weight: 600;
+        user-select: none;
+        border-radius: 15px;
+        border: 1px solid gray;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+      }
+  .Team-members{
+        margin: 10px;
+        border:1px solid #222;
+        border-radius: 15px;
+        padding: 10px;
+      }
+  .name{
+        color:#222;
+        
+        
+      }
+  .footer{
+        width: 100%;
+        height:45px;
+        background-image: url('../img/mosaic-back.jpg');
+        background-size:50%;
+        position: absolute;
+        bottom:0;
+        border-top-left-radius: 45px;
+        border-top-right-radius: 45px;
+    }
+  .footer-txt{
+        font-weight: 800;
+        font-size: 13px; 
+        
+        background-color: rgb(255, 255, 255);
+        border-radius: 10px;
+        text-align: center;
+        margin:auto;
+        color: black;
+        margin-top: 2.5%;
+    }
+    .report-containe{
+        width:95%;
+        height: 100%;
+        
+        overflow: hidden;
+        margin: auto;
+        border-radius: 15px;
+        margin-top: 10px;
+        border:1px solid #222;
+        
+        padding-top: 13px;
+    }
+    .type-img{
+      width:40px;
+      margin-top: 7px;
+      margin-left: 7px;
+  }
+ 
+  .report{
+     width:98%;
+     background-color: #fff;
+     height:60px;
+     position: relative;
+     margin: auto;
+     border-radius: 15px;
+     display: flex;
+     flex-direction: row;
+     margin-bottom: 12px;
+     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  }
+  .report-button{
+    width:auto;
+    height:30px;
+    display: flex;
+    flex-direction: column;
+    
+  }
+  .report-btn{
+    width:70px;
+    height:30px;
+    background-color: rgb(218, 119, 119);
+    border: 0;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    color: white;
+    font-weight:800 ;
+    font-size: 15px;
+    font-family: 'Space Mono';
+    position: absolute;
+    right: 5px;
+    top:12px;
+
+  }
+  .map{
+    width: 100%;
+     height: 100%;
+     overflow-x: none;
+     overflow-y: none;
+     border: 3px solid black;
+     border-radius: 5px;
+}
+  .map-btn{
+    width:30px;
+    height:30px;
+    background-color: rgb(218, 119, 119);
+    border: 0;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    color: white;
+    position: absolute;
+    right:80px;
+    top:12px;
+    background-image: url("../img/maps-and-flags.png");
+    background-size: 25px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .report-info{
+    position: relative;
+    width: 170px;
+    margin-left: 30px;
+  }
+  .top-txt{
+    position: absolute;
+    top:3px;
+    font-size: 14px;
+    border-radius: 15px;
+    padding-left: 4px;
+    padding-right: 4px;
+    background-color: rgb(194, 193, 193);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+   }
+  
+  
+  .bottom-txt{
+   bottom:3px;
+   font-size: 13px;
+   display: flex;
+   flex-direction: row;
+   position: absolute;
+   background-color: rgb(194, 193, 193);
+   border-radius: 15px;
+   padding-left: 4px;
+   padding-right: 4px;
+   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  }
+  .left-txt{
+    padding-left: 15px;
+  }
+  .report-maker{
+    width:100%;
+    height: 0;
+    background-color: white;
+    border-top: 0.5px black solid;
+    position: absolute;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    overflow:hidden;
+    bottom:0px;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+    
+}
+.details-header{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cancel-img{
+  width:35px;
+  position: absolute;
+  top:5px;
+  right:7px;
+  
+}   
+.info-fields{
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.materials-container{
+  width:90%;
+  border: 1px rgb(121, 117, 117) solid;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  position: relative;
+  
+}
+.mat-img{
+  border-right: 1px solid rgb(121, 117, 117);
+  background-color: white;
+  border-radius: 5px;
+  
+}
+.manipulate-btn{
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  right: 5px;
+  top:25px;
+  
+}
+.truck-number{
+  width: 25px;
+  height:25px;
+  margin-left: 3px;
+  margin-right: 3px;
+  font-family: 'Roboto';
+  font-weight: 800;
+  font-size: 15px;
+  
+}
+input[ name="truck-number"]{
+  text-align: center;
+  background-color: rgb(213, 208, 208);
+  border: 0;
+  border-radius: 7px;
+}
+.txt{
+  margin-left: 5px;
+  margin-top: 5px;
+}
+.matrerials-footer{
+  margin: auto;
+  
+ 
+
+  
+}
+.submit-mtr-btn{
+  position: absolute;
+  bottom: 0;
+  right: 3px;
+  left: 3px;
+  border-top:2px solid rgb(101, 99, 99);
+  border-left:2px solid rgb(101, 99, 99);
+  border-right:2px solid rgb(101, 99, 99);
+  border-top-left-radius: 25px;
+  border-top-right-radius: 25px;
+  height: 60px;
+  width:98%;
+  display: flex;
+  justify-content: center;
+}
+.fixing-btn{
+  width: 95%;
+  height:40px;
+  margin-top: 10px;
+  border: 0;
+  border-radius: 15px;
+  background-color: #222;
+  color: white;
+  font-family: 'Space Mono';
+  font-size: 18px;
+
+}
+
+} 

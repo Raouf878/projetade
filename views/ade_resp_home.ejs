@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Client main</title>
+        <link rel="stylesheet" type='text/css'href="/styles/ade-resp.css">
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCMiTrg3gRhfmhR2Df6-Qaqgw9zOmgf790jknlk&callback=initMap"></script>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300;500;800&display=swap');
+          </style>
+    </head>
+    <body>
+        <div class="main-container">
+            <div class="left-container">
+                <div class="nav-bar">
+                    <nav class="nav">
+                        <ul class="nav-ul">
+                           <span class="Home-1" id="home-url"><li> <img class="list-icon"src="/img/cabain.png">Home</li></span> 
+                            <li id="report-url"> <img class="list-icon"src="/img/book.png" >Reports</li>
+                            <li id="map-url"> <img class="list-icon"src="/img/map.png">Map</li>
+                            <li id="Teams-url"> <img class="list-icon"src="/img/drakkar.png">Teams</li>
+                            <li id="Statistics-url"> <img class="list-icon"src="/img/treasure.png">Statistics</li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="logout-button">
+                    <img src="/img/exit.png" style="width:40px; margin-right:9px;padding-top:9px;">
+                    <p>Logout</p>
+                </div>
+            </div>
+            <div class="rest-container">
+                <div class="top">
+                    <div class="welcome text">
+                        <p style="font-size: 24px;font-weight: 800;">Welcome Back</p>
+                    </div>
+                    <div class="infos">
+                        <div class="total-reports">
+                        <p>Total reports <br><%=DataShown.length%></p>
+                        </div>
+                        <div class="total-reports"><p>Total money spent </p></div>
+                        <div class="total-reports"><p>Total Teams  </p></div>
+                    </div>
+                </div>
+                </div>
+                <div class="bottom">
+                    <div class="title">
+                        <p style='font-weight: 800;font-size:24px'>Your reports</p>
+                    </div>
+                    
+                    <div style="height: 200px; overflow-y: scroll; width:720px;overflow-x: hidden; border:1px solid gray;border-radius: 10px;">
+                            <% for (let i =0; i<DataShown.length;i++){%>
+                               
+
+                            <div class="reports">
+                                <div class='report-container'>
+                                    <div class="img">
+                                        <img class="type-img" src="/img/drinking-water.png">
+                                    </div>
+                                    <div class="text">
+                                        <div class="top-txt">
+                                            <p><%=DataShown[i][9]%><br><span>affected Population:<%=DataShown[i][10]%></span></p>
+                                        </div>
+                                        <div class="bottom-txt">
+                                            <P style="margin-right:10px">Start-date:<%=DataShown[i][3]%> at <%=DataShown[i][1] %> </P>
+                                            <p>End-date:<%= DataShown[i][4] %> at <%=DataShown[i][2]%></p>
+                                        </div>
+                                    </div>
+                                    <div class="buttons">
+                                        <div class="priot-img" ><img style='width:40px;'src="/img/prioritize.png"></div>
+                                        <div class="prior-but">
+                                            <button class="button" id="status-button">Status</button>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                
+                            </div>
+                            <%}%>
+                        </div>
+                    
+                    
+                
+                
+            </div>
+            <% for (let i =0; i<DataShown.length;i++){%>
+            <div class="report-info" id="report-info">
+                <div class="header">
+                    <img style='width:45px; cursor: pointer;' class='close-img'src="/img/close.png">
+                </div>
+                <div class="map" id="map" style="width:600px;height:400px;">
+                    <iframe width="425" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.openstreetmap.org/export/embed.html?bbox=2.9384994506835938%2C36.606157681376395%2C3.375205993652344%2C36.79196555769979&amp;layer=mapnik&amp;marker=<%=DataShown[i][11]%>%2C<%=DataShown[i][12] %>" style="border: 1px solid black"></iframe>
+                </div>
+            </div>
+            <%}%>
+        </div>
+        <script src="/javascript/report-anim-home.js"></script>
+        <script src="/javascript/link-manipulator.js"></script>
+      
+    </body>
+</html>

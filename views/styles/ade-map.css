@@ -1,0 +1,136 @@
+*{
+    margin:0;
+    padding:0;
+
+}
+body{
+    background-color:#ebebeb;
+    
+    height: 100%;
+    width: 100%;
+    position:absolute;
+    cursor:url('/img/sword.png'), auto;
+    
+    
+}
+p{
+    font-family: 'Encode sans';
+    margin-top:0 ;
+    margin-bottom: 0;
+}
+
+.main-container{
+    width:100%;
+    height:100%;
+    position: relative;
+}
+.left-container{
+    position: absolute;
+    height:100%;
+    width:250px;
+    left: 0;
+    top:0;
+    background-color: #181818;
+    color: white;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    
+}
+.nav-bar{
+    position: absolute;
+    top:100px;
+    left:0px;
+
+    
+    
+}
+.nav-ul{
+    list-style: none;
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Encode sans';
+    font-weight: 300;
+    vertical-align: top;
+    
+    
+    
+    
+
+}
+.nav-ul li{
+    padding: 10px;
+    transition: all 0.2s ease-in-out;
+    margin-left: 30px;
+    cursor: pointer;
+    display: inline-block;
+    transform-origin: right top;
+    vertical-align: middle;
+    border-radius: 8px;
+    
+    
+    
+    
+    
+    
+    
+}
+.nav-ul li a{
+    text-decoration: none;
+    color: white;
+    
+}
+.nav-ul img{
+    vertical-align: middle;
+}
+
+
+.list-icon{
+    width:30px;
+    margin-right: 40px;
+    
+}
+.logout-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-weight: 300;
+    color: rgb(207, 182, 182);
+    position: absolute;
+    bottom:30px;
+    left: 25px;
+    
+}
+.logout-button p{
+    cursor: pointer;
+}
+.Home-1 li {
+    background-color: white;
+    color: #181818;
+}
+.Home-1 li a {
+    padding-right: 25px;
+    color: #181818;
+}
+.rest-container{
+    position: absolute;
+    top:60px;
+    left:18%;
+    width: 80%;
+    height: 80%;
+    
+}
+.map{
+    width: 100%;
+     height: 100%;
+     overflow-x: none;
+     overflow-y: none;
+     border: 3px solid black;
+     border-radius: 5px;
+}
+.report-nbr{
+    font-weight: 800;
+    font-size: 16px;
+
+}

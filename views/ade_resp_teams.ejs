@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Client main</title>
+        
+        <link rel="stylesheet" href="/styles/ade-team-pc.css">
+        <script src ='/javascript/backgrounf-changer.js'></script>
+        
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300;500;800&display=swap');
+          </style>
+        <style>
+            </style>
+    </head>
+    <body>
+        <div class="main-container">
+            <div class="left-container">
+                <div class="nav-bar">
+                    <nav class="nav">
+                        <ul class="nav-ul">
+                            <li id="home-url"> <img class="list-icon"src="/img/cabain.png">Home</li>
+                            <li id="report-url"> <img class="list-icon"src="/img/book.png" >Reports</li>
+                            <li id="map-url"> <img class="list-icon"src="/img/map.png">Map</li>
+                            <span class="Home-1" ><li id="Teams-url"> <img class="list-icon"src="/img/drakkar.png">Teams</li></span>
+                            <li id="Statistics-url"> <img class="list-icon"src="/img/treasure.png">Statistics</li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="logout-button">
+                    <img src="/img/exit.png" style="width:40px; margin-right:9px;padding-top:9px;">
+                    <p>Logout</p>
+                </div>
+            </div>
+            <div class="rest-container">
+                <div class="header">
+                    <div class="search-bar">
+                        <input type="search" placeholder="Search for a team">
+                        <div class="search-img"><img src="/img/magnifying-glass.png" style="width:30px;margin-top: 4px;cursor: pointer;"></div>
+                    </div>
+                    <div class="utility-section">
+                        <div class="utility-img">
+                            <img class="button" src="/img/add (2).png" style="width:30px;cursor: pointer;">
+                            <img src="/img/refresh.png" style="width:30px;cursor: pointer;">
+                            <img  id="delete"src="/img/delete (1).png" style="width:30px;cursor: pointer;">
+                        </div>
+                    </div>
+                </div>
+             
+            </div>
+            <div class="team"><p>Teams</p></div>
+            <div class="team-section">
+                <% for (let i =0; i<DataShown.length;i++){%>
+                    <div class="team-container" id="<%= `${DataShown[i].ID_s[0]}`%>" element="<%=`${i}`%>">
+                    <label class="container">
+                        <input type="radio" checked="checked" name="radio">
+                        <span class="checkmark"></span>
+                      </label>
+                    <div class="teamtitle"><p style="font-weight: 800;"><%=DataShown[i].team_name%></p></div>
+                    <div class="wrapper"id="wrapper">
+                        <% for (let j =0; j<DataShown[i].members.length;j++){%>
+                        <div class="slider">
+                            <img style ="width:35px;"src="/img/technician.png">
+                            <div class="name">
+                                <p>Team Leader</p>
+                                <p><%=DataShown[i].members[j]%> </p>
+                            </div>
+                            
+                        </div>
+                        
+                        <%}%>
+                    </div>
+                    
+                    
+                </div>
+                
+                <%}%>
+                
+            </div>
+            <div class="report-info" id="report-info">
+                <div class="header2">
+                    <img style='width:45px; cursor: pointer;' id='close-img'src="/img/close.png">
+                </div>
+                <div class="add_info">
+                    <div class="team-title" id="team-title">
+                        <input class="team-input"  id="team-input">
+                        <button class="gen-btn" id="gen-btn">Generate Name</button>
+                    </div>
+                    <div class="team-info">
+                        <input class="team-input new-word-input" id="name">
+                        <input class="team-input new-word-input" id="phone">
+                        <button class="gen-btn" id="add-btn" >Add</button>
+                    </div>
+                    <div id="word-list">
+                    </div>
+                    <div class="enr-btn1">
+                        <button class="enr-btn" id="enr-btn" onclick="saveContacts()">Enregistrer</button>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src ='/javascript/scrollbar.js'></script>
+        <script src="/javascript/report-anim-home.js"></script>
+       <script src="/javascript/team_name_api.js"></script>
+       <script src="/javascript/ade-team-add-member.js"></script>
+       <script src="/javascript/link-manipulator.js"></script>
+    </body>

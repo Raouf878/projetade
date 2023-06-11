@@ -1,0 +1,355 @@
+*{
+    margin:0;
+    padding:0;
+
+}
+body{
+    background-color:#ebebeb;
+    font-family: 'Space Mono';
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+    
+    
+}
+
+@media screen and (max-width: 600px) {
+    
+.main_container{
+    display:flex;
+    flex-direction:column;
+    position: relative;
+    
+    
+    
+}
+.other-info{
+    overflow: hidden;
+    height:250px;
+    position: relative;
+}
+.header{
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom:17px;
+    margin-top:20px;
+    border-bottom: 1px solid rgb(69, 69, 69);
+    border-top: 1px solid rgb(69, 69, 69);
+    padding-top:5.5px;
+    
+}
+.cancel-img{
+    width:35px;
+    position: absolute;
+    top:5px;
+    right:7px;
+    
+}
+.details-header{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.report-container{
+    width:330px;
+    height:150px;
+    background-color: black;
+    margin:auto;
+    border-radius: 10px;
+    position: relative;
+    border: 1px solid rgb(237, 169, 169);
+}
+.report-button{
+    width:150px;
+    height:30px;
+    border-radius:6px;
+    background-color: #DD924E;
+    color: white;
+    font-family: Mukta;
+    position: absolute;
+    top:110px;
+    left:89px;
+    border:1px solid #3D2B1F;
+    transition: all 0.3s;
+    
+    
+}
+.report-button:hover{
+    background-color: #B4A195 ;
+    
+}
+.upload{
+    width:60px;
+    
+    
+}
+.img-container{
+    position: absolute;
+    top:25px;
+    left:135px;
+  
+    
+}
+.info-container{
+ width:93%;
+ height:60px;
+ background-color: white;
+ border-radius: 10px;
+ margin: auto;
+ display: flex;
+ flex-direction: column;
+ flex-wrap: wrap;
+ margin-bottom: 15px;
+ position: relative;
+ box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+ 
+}
+.type-img{
+    width:40px;
+}
+.issue-img{
+    position: absolute;
+    top:12px;
+    left:10px;
+}
+.issue-description{
+    font-size:12px ;
+    font-family: Mukta;
+    font-weight: 400;
+    position: absolute;
+    left:67px;
+    display: flex;
+    flex-direction: column;
+    top:0px;
+}
+
+
+.text-bottom{
+    display: flex;
+    flex-direction: row;
+}
+.text-top{
+    margin-bottom: 22px;
+    
+}
+
+.issue-date{
+    margin-right: 20px;
+}
+.report-status{
+    width:60px;
+    height:20px;
+    background-color: #29AB87 ;
+    position: absolute;
+    top:32%;
+    right:-170px;
+    color: #3F704D;
+    border: 1px solid #3F704D;
+    border-radius: 5px;
+    text-align: center;
+}
+.report-maker{
+    width:100%;
+    height: 0;
+    background-color: #73777B;
+    position: absolute;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    bottom:0;
+    border:0px ;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+    
+}
+form {
+    width: 100%;
+    margin: 0 auto;
+
+    
+  }
+  
+  
+  input[type="location"],
+  input[type="incident-desc"]  {
+    width: 80%;
+    height:40px;
+    padding-left:10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    margin: 0 auto;
+    font-family:Mukta;
+    background-color: #ebebeb;
+    
+    
+  }
+  .incident-type{
+    width: 83%;
+    height:40px;
+    padding-left:10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    margin: 0 auto;
+    font-family:Mukta;
+    background-color: #ebebeb;
+  }
+  input[type="location"]{
+    
+    background-image:url('../img/distance.png');
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-position-y:4px ;
+    background-position-x:295px;
+    
+    
+    
+  }
+  input[type="incident-desc"]{
+    
+    background-image:url('../img/policy.png');
+    background-repeat: no-repeat;
+    background-size: 30px;
+    background-position-y:4px ;
+    background-position-x:295px;
+    
+    
+    
+  }
+  
+  .container {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+  
+  button[type="submit"] {
+    background-color: black;
+    font-family: Mukta;
+    font-size:15px;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    width:90%;
+    border-radius: 10px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    margin-top:40px;
+    
+    transition: all 0.4s;
+  }
+  button[type="submit"]:hover{
+    background-color:white;
+    color: black;
+  }
+  
+  .profile-info
+  {
+    width:70%;
+    height: 50%;
+    background-color: white;
+    position: absolute;
+    border-radius: 5px;
+    
+    right:15%;
+    top:15%;
+    opacity: 0;
+    z-index: -1;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transition: all 0.2s ease-in-out;
+}
+.big-profile{
+    margin-left: 95px;
+    margin-top: 20px;
+    display: inline;
+
+
+}
+.disconnect{
+    width:89px;
+    height:30px;
+    background-color: rgb(210, 43, 43);
+    border: 0;
+    color: white;
+    border-radius: 5px;
+    font-family: 'Space Mono';
+    font-weight: 400;
+    position: absolute;
+    bottom:10px;
+    right:35%;
+}
+.right-arrow{
+    width: 20px;
+    position: absolute;
+    left:5px;
+    top:5px;
+}
+.return-arrow{
+    position: relative;
+}
+.user-info{
+    width:100%;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+.left-info{
+    width:180px;
+    height:180px;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid rgb(164, 163, 163);
+}
+.right-info{
+    margin-left:10px;
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+.top-info{
+ width:180px;
+ height:85px;
+ background-color: white;
+ margin-bottom: 10px;
+ border-radius: 10px;
+ border: 1px solid rgb(164, 163, 163);
+}
+
+.bottom-info{
+    width:180px;
+    height:85px;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid rgb(164, 163, 163);
+    
+}
+.total{
+    font-size: 25px;
+    font-weight: 800;
+    margin-top: 50px;
+    margin-left: 10px;
+}
+.total-ri{
+    font-size: 25px;
+    font-weight: 800;
+    position: absolute;
+    margin-left: 10px;
+    
+}
+.img-2{
+    position: relative;
+    bottom: -0px;
+}
+
+
+
+
+}

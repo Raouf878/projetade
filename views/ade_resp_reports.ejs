@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+        <title>Client main</title>
+        <link rel="stylesheet" href="/styles/ade-report.css">
+        <script src ='/javascript/backgrounf-changer.js'></script>
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+        <script src="https://unpkg.com/esri-leaflet@3.0.10/dist/esri-leaflet.js"></script>
+        <script src="https://unpkg.com/esri-leaflet-vector@4.0.2/dist/esri-leaflet-vector.js"></script>
+        <script src="https://unpkg.com/esri-leaflet-geocoder@3.1.4/dist/esri-leaflet-geocoder.js"></script>
+        <script src="/javascript/team_add_info.js"></script>
+        
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300;500;800&display=swap');
+           
+            @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+
+          </style>
+        <style>
+            </style>
+    </head>
+    <body>
+        <div class="main-container">
+            <div id="banner" class="hidden"></div>
+            <div class="left-container">
+                <div class="nav-bar">
+                    <nav class="nav">
+                        <ul class="nav-ul">
+                           <li> <img class="list-icon"src="/img/cabain.png"><a href="./ade_resp_home.html">Home</a></li>
+                           <span class="Home-1"><li> <img class="list-icon"src="/img/book.png"><a href="">Reports</a></li></span> 
+                            <li> <img class="list-icon"src="/img/map.png"><a href="./ade_resp_map.html">Map</a></li>
+                            <li> <img class="list-icon"src="/img/drakkar.png"><a href="./ade_resp_teams.html">Teams</a></li>
+                            <li> <img class="list-icon"src="/img/treasure.png"><a href="./ade_resp_statistics.html">Statistics</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="logout-button">
+                    <img src="/img/exit.png" style="width:40px; margin-right:9px;padding-top:9px;">
+                    <p>Logout</p>
+                </div>
+            </div>
+            <div class="rest-container">
+                <div class="header">
+                    <div class="search-bar">
+                        <input type="search" placeholder="Search for a team">
+                        <div class="search-img"><img src="/img/magnifying-glass.png" style="width:30px;margin-top: 4px;cursor: pointer;"></div>
+                    </div>
+                    <div class="utility-section">
+                        <div class="utility-img">
+                            <img class="button" src="/img/add (2).png" style="width:30px;cursor: pointer;">
+                            
+                        </div>
+                    </div>
+                </div>
+                <main class="main-container2">
+                    <div class="Left">
+                        <div class="top">
+                            <div class="title">
+                                <p style='font-weight: 800;font-size:24px'>Your reports</p>
+                            </div>
+                            
+                            <div style="height: 200px; overflow-y: scroll; width:770px;overflow-x: hidden; border:1px solid gray;border-radius: 10px;">
+                                    <% for (let i =0; i< DataShown.length;i++){%>
+                                       
+        
+                                    <div class="reports" id="<%=DataShown[i][0]%>">
+                                        <div class='report-container'>
+                                            <div class="text">
+                                                <div class="top-txt">
+                                                    <p><%=DataShown[i][1]%></p>
+                                                </div>
+                                                <div class="bottom-txt">
+                                                    <P style="margin-right:10px">Start-date:<%=DataShown[i][4]%> at <%=DataShown[i][2] %> </P>
+                                                    
+                                                    <p>End-date:<%= DataShown[i][5] %> at <%=DataShown[i][3]%></p>
+                                                </div>
+                                            </div>
+                                            <div class="buttons">
+                                                <% if (!DataShown[i][5]){%>
+                                                    
+                                                    <button class="buton end-button" id="status-button" >END</button>
+                                                    <button class="buton1" id="status-button" >MODIFY</button>
+                                                    <button class="buton2" id="status-button" >DELETE</button>
+        
+                                                <% } else {%>
+                                                    <button class="buton end-button" id="status-button" style="background-color: white;color:#29AB87;border:1px solid black" disabled>ENDED</button>
+                                                    <button class="buton1" id="status-button" >MODIFY</button>
+                                                    <button class="buton2" id="status-button" >DELETE</button>
+                                                    <%}%>
+                                                    
+                                                   
+
+                                            </div>
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                    <%}%>
+                                </div>
+                        </div>
+                        <div class="bottom"></div>
+                    </div>
+                    <div class="Right"></div>
+                </main>
+             
+            </div>
+            
+            </div>
+            <div class="report-info" id="report-info">
+                <div class="header2">
+                    <img style='width:45px; cursor: pointer;' id='close-img'src="/img/close.png">
+                </div>
+                <div class="rest-report">
+                    
+                    <div id="map" class="map"></div>
+                </div>
+                <div class="top-info">
+                    <div class="team-title" id="team-title">
+                        <label for="team_name" >Report name</label>
+                        <input type="team_name"  class="team-input"  id="team-input" placeholder="Please generate a name for your report" readonly>
+                        <button class="gen-btn1" id="gen-btn2">Generate Name</button>
+                    </div>
+                    <div class="team-info">
+                        <div class="Addresses">
+                    <div>
+                        <label>incident address</label>
+                        <input class="team-input1" id="address" placeholder="Please choose adress from map" readonly>
+                        <label>incident Title</label>
+                        <input class="team-input1" id="title" placeholder="Please enter accident title" >
+                        <label>incident Description</label>
+                        <input class="team-input1" id="desc" placeholder="Please enter incident accident description" >
+                        <label>Affected population</label>
+                        <input class="team-input1" id="affected" placeholder="How many people are affected" required>
+                    </div>
+                    <div>
+                        <label>Lan</label>
+                        <input class="team-input2" id="Lan" readonly>
+                    </div>
+                    <div>
+                        <label>Lat</label>
+                        <input class="team-input2" id="Lat" readonly>
+                    </div>
+                    </div>
+                        <label>Team</label>
+                        <select id="mySelect">
+                            <% Team.forEach(function(Team) { %>
+                              <option><%= Team %></option>
+                            <% }); %>
+                        </select>
+                    <div class="materials-section">
+                        <div class="material-title">
+                         <p>Materials</p>
+                         <div class="pagination">
+                            <button id="prevPageBtn">&lt;</button>
+                            <button id="nextPageBtn">&gt;</button>
+                          </div>
+                        </div>
+                        <div class="materialss">
+                            <% Materials.forEach(function(Materials) { %>
+                        <div class="one-material-populated">
+                            <input type="checkbox">
+                            <div>
+                            <label><%= Materials[1] %></label>
+                            <input type="range" id="slider" min="0" max="100" value="0" />
+                            
+                        </div>
+                            <input class="material-nbr"type="text"  value="0" readonly />
+                            <input class="material-nbr2"type="text"  value="<%= Materials[2]%>" readonly />
+                           
+                        </div>
+                        <% }); %>
+                    </div>
+                    
+                    </div>
+                        <button class="gen-btn" id="add-btn" onclick="createObject()" >Enregistrer</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+         <script src ='/javascript/report-map.js'></script>
+         <script>
+            const Adress_Field=document.getElementById('address')
+            const Langtitude=document.getElementById('Lan')
+            const Latitude=document.getElementById('Lat')
+            const map = L.map("map", {
+              minZoom: 1
+            })
+            map.setView([ 36.72515, 3.02831], 20);
+            const apiKey = "AAPK7b892c2875644489859e5bf6b8984ec0WfVuY1rcA4muvOvVXnxjHlcj8GFw1gktrf5iJE_tvz0DIbGA4-ycYfwWl7sFTaL5";
+            const basemapEnum = "ArcGIS:Imagery";
+            L.esri.Vector.vectorBasemapLayer(basemapEnum, {
+            apiKey: apiKey
+            }).addTo(map);
+            map.on("click", function (e) {
+
+});
+const layerGroup = L.layerGroup().addTo(map);
+
+      map.on("click", function (e) {
+
+        L.esri.Geocoding
+          .reverseGeocode({
+            apikey: apiKey
+          })
+          .latlng(e.latlng)
+
+          .run(function (error, result) {
+            if (error) {
+              return;
+            }
+
+            layerGroup.clearLayers();
+            
+            marker = L.marker(result.latlng).addTo(layerGroup);
+            let Lan=Math.round(result.latlng.lng * 100000)/100000;
+            let Lat=Math.round(result.latlng.lat * 100000) / 100000;
+
+            const lngLatString = `${Lan}, ${Lat}`;
+
+            marker.bindPopup(`<b>${lngLatString}</b><p>${result.address.Match_addr}</p>`);
+            marker.openPopup();
+            Adress_Field.value = result.address.Match_addr;
+            Langtitude.value=Lan;
+            Latitude.value=Lat;
+
+          });
+
+      });
+      const materialSections = document.querySelectorAll('.one-material-populated');
+
+materialSections.forEach((materialSection) => {
+  const slider = materialSection.querySelector('input[type="range"]');
+  const valueInput = materialSection.querySelector('.material-nbr');
+
+  slider.addEventListener('input', function() {
+    valueInput.value = parseInt(slider.value) + 1;
+  });
+});
+      
+          </script>
+          <script src="/javascript/team_name_api.js"></script>
+          <script src="/javascript/ade-report-scroll.js"></script>
+         <script src="/javascript/report-end-report.js"></script>
+          
+    </body>

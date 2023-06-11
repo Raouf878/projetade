@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Client main</title>
+        <link rel="stylesheet" href="./styles/client_main.css">
+        <script src ='./javascript/report-anim.js'></script>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;500;800&family=Tilt+Neon&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;500&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+            </style>
+    </head>
+    <body>
+        <div class="main_container" id="main-con">
+            <div class="header">
+                <div class="title"><p style="font-size:20px;padding-left:19px;font-weight:700;">welcome Back</p></div>
+                <div class="profile-picture">
+                    <img id ="profile-img"src="../assets/img/user.png" style="width:30px;padding-right:19px;">
+                </div>
+            </div>
+            <div class="report-container">
+                <div class="img-container">
+                <img class="upload" src="./img/add.png"></div>
+                <button class="report-button" id="report-btn">Report an issue</button>
+            </div>
+            <div class="user-info">
+                <div class="left-info">
+                    <img style='width:40px;margin-top:5px;margin-left:5px;'src="./img/all.png">
+                    <p class="total">10</p>
+                    <p style="opacity: 0.5;font-size: 14px;font-weight:800;margin-left: 5px;">Total reports</p>
+                </div>
+                <div class="right-info">
+                    <div class="top-info">
+                        <div class="total-ri">
+                            <p>9</p>
+                            <p style="opacity: 0.5;font-size: 12px;margin-top: 25px;">incidents fixed</p>
+                        </div>
+                        <div class="img-2">
+                        <img style='width:40px;margin-top: 25px;margin-left:136px;'src='./img/check.png'></div>
+                    </div>
+                        
+                    <div class="bottom-info">
+                        <div class="total-ri">
+                            <p>1</p>
+                            <p style="opacity: 0.5;font-size: 12px;margin-top: 25px;text-align: left;">Waiting incidents</p>
+                        </div>
+                        <div class="img-2">
+                        <img style='width:40px;margin-top: 25px;margin-left:136px;'src="./img/waiting.png"></div>
+                       
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="other-info">
+                <p style="font-size:15px;padding-left:19px;font-weight:800;padding-top:10px; text-align: center;">Previous reports </p>
+                <div class="info-container">
+                    <div class="issue-img"> <img class="type-img" src="./img/leaking.png"></div>
+                    <div class="issue-description">
+                        <div class="text-top"><p class="issue-title">Water Leaks</p></div>
+                        <div class="text-bottom"><p class="issue-date">2023-04-12</p>
+                        <p class="issue-place">Reghaia</p></div>
+                        <div class="report-status"><p>FIXED</p></div>
+                        
+                    </div>
+                </div>
+                <div class="info-container">
+                    <div class="issue-img"> <img class="type-img" src="./img/no-pollution.png"></div>
+                    <div class="issue-description">
+                        <div class="text-top"><p class="issue-title">Contaminated water</p></div>
+                        <div class="text-bottom"><p class="issue-date">2023-04-08</p>
+                        <p class="issue-place">Reghaia</p></div>
+                        <div class="report-status">
+                            <p>FIXED</p>
+                        </div>
+                        
+                    </div>
+                </div>
+               
+                <div class="info-container">
+                    <div class="issue-img"> <img class="type-img" src="../assets/img/drinking-water.png"></div>
+                    <div class="issue-description">
+                        <div class="text-top"><p class="issue-title">No Water</p></div>
+                        <div class="text-bottom"><p class="issue-date">2023-03-12</p>
+                        <p class="issue-place">Reghaia</p></div>
+                        <div class="report-status"><p>FIXED</p></div>
+                        
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+        
+        <div class="report-maker" id="report-page">
+            <div class="details-header">
+            <img class="cancel-img" src="../assets/img/close.png" id="cancel-img">
+            <p style="text-align: center;font-weight: 800;font-size: 23px;margin-bottom: 15px;">Incident details</p></div>
+            <div class="info-fields">
+                    <form>
+
+                        
+                        <div class="container">
+                        <input type="location" id="location" name="location" placeholder="Location of the incident" autocomplete="off">
+                        </div>
+                        <div class="container">
+                            <select class="incident-type">
+                                <option value=""disabled selected>Select incident type</option>
+                                <option value="option1">Water leaks</option>
+                                <option value="option2">Contaminated water</option>
+                                <option value="option3">No water</option>
+                              </select>
+                        </div>
+                        <div class="container">
+                            <input class="incident-desc" type="incident-desc" id="incident-desc" name="incident-desc" placeholder="Enter 50 word description" autocomplete="off">
+                        </div>
+                        <button type="submit">Submit</button>
+                      </form>
+                </div>
+                
+       </div>
+       <div class="profile-info" id="profile-container">
+        <div class="return-arrow">
+            <img class="cancel-img" src="../assets/img/close.png" id="cancel-img2">
+        </div>
+        <div class="big-profile" id="big-profile"><img src="../assets/img/user.png" style="width:90px"></div>
+        <p style="text-align: center; font-weight: 800;">Email:user@gmail.com</p>
+        <button class="disconnect">Disconnect</button>
+        
+        
+       </div>
+        
+    </body>
+</html>

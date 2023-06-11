@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <link rel="stylesheet" href="./styles/Login.css">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;500;800&family=Tilt+Neon&display=swap');
+            </style>
+            
+    </head>
+    <body>
+        
+        <div class="login-container">
+            <div class="black_container"></div>
+
+            <div class="login_info">
+                <p class="login-title">Login to your account</p>
+                <div class="info-fields">
+                    <div class='form'>
+
+                        <label for="email">Email</label>
+                        <div class="container">
+                        <input type="email" id="Email" name="email" placeholder="Enter your email" >
+                        
+                        </div>
+                        <label for="password">Password</label>
+                        <div class="container">
+                        <input type="password" id="password" name="password" placeholder="Enter your password">
+                        </div>
+                        <button type="submit" id="submit">Login</button>
+                    </div>
+                      <p style="text-align: center;margin-top:15px;">Don't have an account? <span style="color:#B4A195;"><a href="/register" id="register">Register Here</a></a></span></p>
+                </div>
+            </div>
+        </div>
+        <script>
+async function postData(url = '', data = {}) {
+  const response = await fetch(url, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify(data)
+});
+
+try {
+  const responseData = await response.json();
+  console.log(responseData);
+  
+  
+  if (responseData.message === 'alger') {
+    window.location.href = `/home/${responseData.id}/${responseData.message}`;
+  } else {
+    console.error('Error:', responseData.error);
+  }
+} catch (error) {
+  console.error('Error:', error);
+}  
+}
+let submit=document.getElementById('submit');
+submit.addEventListener('click',async()=>{
+    let email=document.getElementById('Email').value;
+    let password=document.getElementById('password').value;
+    console.log(email);
+    let sign=await postData("/LLogin/signin", {
+        email: email,
+        password: password
+    });
+    
+})
+
+        </script>
+        
+    </body>
+    
+</html>

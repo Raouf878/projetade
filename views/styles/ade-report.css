@@ -1,0 +1,513 @@
+*{
+    margin:0;
+    padding:0;
+
+}
+body{
+    background-color:#ebebeb;
+    
+    height: 100%;
+    width: 100%;
+    position:absolute;
+    cursor:url('/img/sword.png'), auto;
+
+    
+    
+}
+p{
+    font-family: 'Encode sans';
+    margin-top:0 ;
+    margin-bottom: 0;
+}
+
+.main-container{
+    width:100%;
+    height:100%;
+    position: relative;
+}
+.left-container{
+    position: absolute;
+    height:100%;
+    width:250px;
+    left: 0;
+    top:0;
+    background-color: #181818;
+    color: white;
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+    
+}
+.nav-bar{
+    position: absolute;
+    top:100px;
+    left:0px;
+
+    
+    
+}
+.nav-ul{
+    list-style: none;
+    font-size: 25px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Encode sans';
+    font-weight: 300;
+    vertical-align: top;
+    
+    
+    
+    
+
+}
+.nav-ul li{
+    padding: 10px;
+    transition: all 0.2s ease-in-out;
+    margin-left: 30px;
+    cursor: pointer;
+    display: inline-block;
+    transform-origin: right top;
+    vertical-align: middle;
+    border-radius: 8px;
+    
+    
+    
+    
+    
+    
+    
+}
+.nav-ul li a{
+    text-decoration: none;
+    color: white;
+    
+}
+.nav-ul img{
+    vertical-align: middle;
+}
+
+
+.list-icon{
+    width:30px;
+    margin-right: 40px;
+    
+}
+.logout-button{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-weight: 300;
+    color: rgb(207, 182, 182);
+    position: absolute;
+    bottom:30px;
+    left: 25px;
+    
+}
+.logout-button p{
+    cursor: pointer;
+}
+.Home-1 li {
+    background-color: white;
+    color: #181818;
+}
+.Home-1 li a {
+    padding-right: 25px;
+    color: #181818;
+}
+.rest-container{
+    
+    position: relative;
+    display: flex;
+    justify-content: center;
+    
+}
+.map{
+    width: 58%;
+    height: 680px;
+    position: absolute;
+    overflow: hidden;
+     border: 3px solid black;
+     border-radius: 5px;
+     right:5px;
+     left: 5px;
+     bottom:5px;
+}
+.report-nbr{
+    font-weight: 800;
+    font-size: 16px;
+
+}
+.header{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width:300px;
+   
+    
+    
+    height: 40px;
+    
+    border-radius: 25px;
+    top:40px;
+    
+    
+}
+.search-bar{
+    display: flex;
+    flex-direction: row;
+    border-radius: 25px;
+    padding-right: 20px;
+    border: 1px solid black;
+    justify-content: left;
+    z-index: 2;
+    
+    background-color:rgb(241, 239, 239) ;
+}
+input[type="search"]{
+    border: 1px solid rgb(190, 190, 190);
+    width:240px;
+    font-family:'Encode sans' ;
+    border-radius: 25px;
+    padding-left: 10px;
+}
+.utility-img{
+
+ padding: 4px;
+}
+.utility-section{
+    background-color:rgb(241, 239, 239) ;
+    border-radius: 25px;
+    border: 1px solid black;
+}
+.report-info{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    width:85%;
+    height:0%;
+    background-color: white;
+    border:1px solid rgb(75, 75, 75);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius:10px;
+    right:5%;
+    bottom:0%;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+    
+}
+.rest-report{
+    position: absolute;
+    
+    width:100%;
+    bottom: 0;
+}
+.team-input{
+    height:35px;
+    width:350px;
+    border-radius: 15px;
+    border: 1px solid black;
+    padding:5px;
+    font-family: 'Encode Sans';
+    
+    
+}
+.team-input1{
+    height:35px;
+    width:280px;
+    border-radius: 15px;
+    border: 1px solid black;
+    padding:5px;
+    font-family: 'Encode Sans';
+    
+    
+}
+.team-input2{
+    height:35px;
+    width:50px;
+    border-radius: 15px;
+    border: 1px solid black;
+    padding:5px;
+    font-family: 'Encode Sans';
+    margin-left:10px
+    
+    
+}
+.team-input3{
+    height:35px;
+    width:50px;
+    border-radius: 15px;
+    border: 1px solid black;
+    padding:5px;
+    font-family: 'Encode Sans';
+    
+    
+    
+}
+.gen-btn{
+    height:45px;
+    width:150px;
+    border-radius: 15px;
+    border: 1px solid rgb(192, 191, 191);
+    color: white;
+    background-color: black;
+    font-family: 'Encode Sans';
+    vertical-align: top;
+    transition: all 0.24s ease-in-out;
+    cursor: pointer;
+    margin: auto;
+    margin-top: 15px;
+}
+.gen-btn1{
+    height:45px;
+    width:70px;
+    border-radius: 15px;
+    border: 1px solid rgb(192, 191, 191);
+    color: white;
+    background-color: black;
+    font-family: 'Encode Sans';
+    vertical-align: top;
+    transition: all 0.24s ease-in-out;
+    cursor: pointer;
+}
+.gen-btn:hover,
+.gen-btn1:hover{
+background-color: white;
+color: black;
+}
+
+
+.team-info{
+    margin-top:15px;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.top-info{
+  position: absolute;
+  top:15px;
+  right:45px;
+  display: flex;
+  flex-direction: column;
+
+}
+.header2{
+    position: absolute;
+    right:0;
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-family: 'Roboto';
+    font-weight: 300;
+    margin-left:10px;
+    
+    
+  }
+  .Addresses{
+    display: flex;
+    flex-direction: row;
+    
+  }
+  .materials-section{
+    border:2px solid black;
+    display: grid;
+    grid-template-columns: 1;
+    width:100%;
+    grid-gap:10px;
+    border-radius: 15px;
+    margin: 15px;
+  }
+  .materialss{
+    
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    width:100%;
+    grid-gap: 10px;
+    padding :10px;
+
+  }
+  .material-nbr,
+  .material-nbr2{
+    width:30px;
+    text-align: center;
+    border: 1px solid black;
+    font-family: 'Encode Sans';
+    border-radius: 5px;
+
+    
+
+
+  }
+  #banner {
+    position: fixed;
+    z-index:5;
+    top: 0px;
+    width: 30%;
+    left: 35%;
+    border-radius: 5px;
+    margin: auto;
+    background-color: black;
+    border: 1px solid white;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    transition: opacity 0.5s ease-in-out;
+    
+  }
+  
+  .hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+  
+.one-material-populated{
+   display: flex;
+   flex-direction: row;
+   vertical-align: top;
+   
+  }
+.material-title p{
+    grid-column: 1 / -1;
+    }
+.material-title{
+margin: auto;
+    }
+input[type="checkbox"]{
+    width:20px;
+    margin-right: 5px;
+
+}
+input[type="range"]{
+    margin-right: 5px;
+
+}
+.reports{
+    
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: white;
+    width: 723px;
+    height:70px;
+    margin-top: 5px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 10px;
+    margin: 10px;
+    justify-content: center;
+    align-items: center;
+    padding-right:10px;
+    
+
+}
+.report-container{
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.text{
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    
+}
+.text p{
+    margin-bottom: 0;
+    font-size: 16px;
+    
+    
+}
+
+
+.bottom-txt{
+    display: flex;
+    flex-direction: row;
+    
+    
+}
+.bottom-txt p{
+    font-size: 10px;
+    margin-top: 13px;
+    width:100%px;
+    
+    
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
+    margin-left: 80px;
+    margin-top:25px;
+}
+.buton{
+    width:60px;
+    height:40px;
+    border:0;
+    border-radius: 10px;
+    background-color: #29AB87;
+    font-family: 'Encode sans';
+    color:white;
+    margin-left:8px;
+    cursor: pointer;
+    transition :all 0.2s ease-in-out
+    
+}
+.buton1{
+    width:60px;
+    height:40px;
+    border:0;
+    border-radius: 10px;
+    background-color: #61a1f5;
+    font-family: 'Encode sans';
+    color:white;
+    margin-left:8px;
+    cursor: pointer;
+    transition :all 0.2s ease-in-out
+    
+}
+.buton2{
+    width:60px;
+    height:40px;
+    border:0;
+    border-radius: 10px;
+    background-color: #de455c;
+    font-family: 'Encode sans';
+    color:white;
+    margin-left:8px;
+    cursor: pointer;
+    transition :all 0.2s ease-in-out
+    
+}
+.buton:hover{
+    background-color: white;
+    border:1px solid #29AB87;
+    color:#29AB87;
+}
+.buton1:hover{
+    background-color: white;
+    border:1px solid  #61a1f5;
+    color:#61a1f5;
+}
+.buton2:hover{
+    background-color: white;
+    border:1px solid #de455c;
+    color:#de455c;
+}
+.main-container{
+    position: relative;
+}
+.Left{
+    position: relative;
+    top:120px;
+    left:-120px;
+}
+.prior-but{
+    display: flex;
+    flex-direction: row;
+}
+.price{
+    width:60px;
+}

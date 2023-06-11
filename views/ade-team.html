@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Client main</title>
+        <link rel="stylesheet" href="./styles/ade-team.css">
+        <script src ='/javascript/ade-team-anim.js'></script>
+        <script src ='/javascript/minus-plus-script.js'></script>
+        <script src ='/javascript/scrollbar.js'></script>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;500;800&family=Tilt+Neon&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;500&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+            </style>
+    </head>
+    <body>
+    <header class="header">
+        <div class="header-text">
+            <p class="welcome-txt" style="text-align: center;width: 190px;">Welcome Back</p>
+            <p class="team-txt" style="width: 120px;">Team:04</p>
+            <p class="unit-txt" style="width: 170px;">Unit: Blida</p>
+        </div>
+        <div class="header-pic">
+            <img id ="profile-img" src="../assets/img/user (2).png" style="width:50px;padding-right:19px;">
+        </div>
+    </header>
+    <main style="display: flex;flex-direction: column;">
+        <p class="teambr-txt">Team Members</p>
+        <div class="border-image"></div>
+        
+        <div class="Team-members">
+            <div class="wrapper">
+                <div class="slider">
+                    <img style ="width:35px;"src="../assets/img/technician.png">
+                    <div class="name">
+                        <p>Team Leader</p>
+                        <p>Benlarbi Mehdi</p>
+                    </div>
+                    
+                </div>
+                <div class="slider"><img style ="width:35px;"src="../assets/img/technician.png">
+                    <div class="name">
+                        <p>Member:1</p>
+                        <p>Benlarbi Mehdi</p>
+                    </div>
+                    </div>
+                <div class="slider"><img style ="width:35px;"src="../assets/img/technician.png">
+                    <div class="name">
+                        <p>Member:2</p>
+                        <p>Benlarbi Mehdi</p>
+                    </div>
+                    </div>
+                <div class="slider"><img style ="width:35px;"src="../assets/img/technician.png">
+                    <div class="name">
+                        <p>Member:3</p>
+                        <p>Benlarbi Mehdi</p>
+                    </div>
+                    </div>
+                <div class="slider"><img style ="width:35px;"src="../assets/img/technician.png">
+                    <div class="name">
+                        <p>Member:4</p>
+                        <p>Benlarbi Mehdi</p>
+                    </div>
+                    </div>
+                <div class="slider"><img style ="width:35px;"src="../assets/img/technician.png">
+                    <div class="name">
+                        <p>Member:5</p>
+                        <p>Benlarbi Mehdi</p>
+                    </div>
+                    </div>
+              </div>
+        </div>
+        <p class="teambr-txt">Your Work</p>
+        <div class="border-image"></div>
+        <div class="report-containe">
+            <div class="report">
+                <div class="report-image">
+                    <img class="type-img" src="../assets/img/drinking-water.png">
+                </div>
+                <div class="report-info">
+                    <div class="top-txt">
+                        <p>No Water</p>
+                    </div>
+                    <div class="bottom-txt">
+                        <div class="right-txt">
+                            <p>2023-04-25</p>
+                        </div>
+                        <div class="left-txt">
+                            <p>Reghaia</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="report-button" >
+                    <button class="map-btn" onclick="window.location.href = 'https://www.google.com/maps/search/?api=1&query=1600+Amphitheatre+Parkway%2C+CA';" ></button>
+                    <button class="report-btn" id="report-btn">Fix</button>
+               </div>
+            </div>
+      
+
+            
+        </div>
+        <div class="report-maker" id="report-page">
+            <div class="details-header" style="border-bottom: 1px gray solid;">
+            <img class="cancel-img" src="../assets/img/close.png" id="cancel-img">
+            <p style="text-align: center;font-weight: 800;font-size: 23px;margin-bottom: 15px;">appropriate materials</p></div>
+            <div class="info-fields">
+                <form>
+                <div class="materials-container">
+                    <div class="mat-img">
+                        <img style="width:50px;padding:10px;" src="../assets/img/pickup-truck.gif">
+                    </div>
+                    <div class="mat-txt">
+                        <div class="txt">
+                            <p style="font-size: 18px;font-family:'Roboto';font-weight: 800;">Truck</p>
+                            <p style="font-size: 14px;font-family:'Roboto';font-weight: 500;max-width:180px;">Please choose how many Trucks are needed</p>
+                        </div>
+                        <div class="manipulate-btn">
+                            <div class="minus-btn">
+                                <img style="width:25px;" id="truck-minus" src="../assets/img/minus.png">
+                            </div>
+                            <div class="TR-NM">
+                                <input class="truck-number" type="number" id="truck-number" name="truck-number"autocomplete="off" value="0" readonly>
+                            </div>
+                            <div class="plus-btn">
+                                <img style="width:25px;"id="truck-plus" src="../assets/img/plus.png">
+                            </div>
+                        </div>
+                    </div>
+                   
+            </div>
+                
+       </div>
+       <div class="info-fields">
+        <div class="materials-container">
+            <div class="mat-img">
+                <img style="width:50px;padding:10px;" src="../assets/img/wrench.gif">
+            </div>
+            <div class="mat-txt">
+                <div class="txt">
+                    <p style="font-size: 18px;font-family:'Roboto';font-weight: 800;">Wrench box-set</p>
+                    <p style="font-size: 14px;font-family:'Roboto';font-weight: 500;max-width:180px;">Please choose the number for Wrench box-set needed</p>
+                </div>
+                <div class="manipulate-btn">
+                    <div class="minus-btn">
+                        <img style="width:25px;"id="wrench-minus" src="../assets/img/minus.png">
+                    </div>
+                    <div class="TR-NM">
+                        <input class="truck-number" type="number" id="wrench-number" name="truck-number"autocomplete="off" value="0" readonly>
+                    </div>
+                    <div class="plus-btn">
+                        <img style="width:25px;"id="wrench-plus" src="../assets/img/plus.png">
+                    </div>
+                </div>
+            </div>
+           
+    </div>
+        
+</div>
+<div class="info-fields">
+    <div class="materials-container">
+        <div class="mat-img">
+            <img style="width:50px;padding:10px;" src="../assets/img/plumbing.gif">
+        </div>
+        <div class="mat-txt">
+            <div class="txt">
+                <p style="font-size: 18px;font-family:'Roboto';font-weight: 800;">Water pipe set</p>
+                <p style="font-size: 14px;font-family:'Roboto';font-weight: 500;max-width:180px;">Please choose the number for water pipe collection set needed</p>
+            </div>
+            <div class="manipulate-btn">
+                <div class="minus-btn">
+                    <img style="width:25px;"id="pipe-minus" src="../assets/img/minus.png">
+                </div>
+                <div class="TR-NM">
+                    <input class="truck-number" type="number" id="pipe-number" name="truck-number"autocomplete="off" value="0" readonly>
+                </div>
+                <div class="plus-btn">
+                    <img style="width:25px;"id="pipe-plus" src="../assets/img/plus.png">
+                </div>
+            </div>
+        </div>
+       
+</div>
+    
+</div>
+<div class="info-fields">
+    <div class="materials-container">
+        <div class="mat-img">
+            <img style="width:50px;padding:10px;" src="../assets/img/screws.gif">
+        </div>
+        <div class="mat-txt">
+            <div class="txt">
+                <p style="font-size: 18px;font-family:'Roboto';font-weight: 800;">Screws box-set</p>
+                <p style="font-size: 14px;font-family:'Roboto';font-weight: 500;max-width:180px;">Please choose the number for screws box-set needed</p>
+            </div>
+            <div class="manipulate-btn">
+                <div class="minus-btn">
+                    <img style="width:25px;" id="screw-minus"src="../assets/img/minus.png">
+                </div>
+                <div class="TR-NM">
+                    <input class="truck-number" type="number" id="screw-number" name="truck-number"autocomplete="off" value="0" readonly>
+                </div>
+                <div class="plus-btn">
+                    <img style="width:25px;" id="screw-plus" src="../assets/img/plus.png">
+                </div>
+            </div>
+        </div>
+        
+       
+</div>
+
+</div>
+<div class="matrerials-footer">
+    <div class="submit-mtr-btn"><button type="submit" class="fixing-btn">Start Your trip</button></div>
+</div>
+
+</form>
+    </main>
+    <footer class="footer"><p class="footer-txt" style="width:160px;">@COPYRIGHT ADE 2023</p></footer>
+    </body>
+</html>

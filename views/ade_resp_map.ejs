@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Client main</title>
+        <link rel="stylesheet" type="text/css" href="/styles/ade-map.css">
+        <link rel="stylesheet" href="/leaflet/leaflet.css">
+        <script src="/leaflet/leaflet.js"></script>
+        <script src="/javascript/backgrounf-changer.js"></script>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300;500;800&display=swap');
+        </style>
+        <style>
+        </style>
+    </head>
+    <body>
+        <div class="main-container">
+            <div class="left-container">
+                <div class="nav-bar">
+                    <nav class="nav">
+                        <ul class="nav-ul">
+                            <li><img class="list-icon" src="/img/book.png"><a href="./ade_resp_home.html">Home</a></li> 
+                            <li><img class="list-icon" src="/img/book.png"><a href="./ade_resp_reports.html">Reports</a></li>
+                            <span class="Home-1"><li><img class="list-icon" src="../assets/img/map.png"><a href="">Map</a></li></span>
+                            <li><img class="list-icon" src="/img/drakkar.png"><a href="./ade_resp_teams.html">Teams</a></li>
+                            <li><img class="list-icon" src="/img/treasure.png"><a href="./ade_resp_statistics.html">Statistics</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="logout-button">
+                    <img src="../assets/img/exit.png" style="width:40px; margin-right:9px;padding-top:9px;">
+                    <p>Logout</p>
+                </div>
+            </div>
+            <div class="rest-container">
+                <div id="map" class="map"></div>
+            </div>
+        </div>
+        
+        <script>
+            var popupContent=[];
+            var map = L.map('map').setView([36.7631, 3.3399], 10)
+            var tileLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+            var deconstructedData2 = <%-JSON.stringify(deconstructedData)%>;
+             for (var i=0; i<deconstructedData2.length;i++){
+                popupContent[i] = `<div class='custom-popup'><p class='report-nbr'>Report:${deconstructedData2[i][0]}</p><p class='report-ttl'>${deconstructedData2[i][8]}</p><p>Team:${deconstructedData2[i][9]}</p><p>ADE User: ${deconstructedData2[i][14] } ${deconstructedData2[i][13]}</p><p>Cost: ${deconstructedData2[i][7]}DA</p><p>Affected Population: ${deconstructedData2[i][6]}</p></div>`
+             }
+             console.log(popupContent[0]);
+             for(var i=0;i<popupContent.length;i++){
+            var marker = L.marker([`${deconstructedData2[i][11]}`, `${deconstructedData2[i][10]}`]).addTo(map).bindPopup(popupContent[i]);}
+           
+        </script>
+    </body>
+</html>
