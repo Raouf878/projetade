@@ -12,6 +12,7 @@
         </style>
         <style>
         </style>
+        
     </head>
     <body>
         <div class="main-container">
@@ -19,11 +20,11 @@
                 <div class="nav-bar">
                     <nav class="nav">
                         <ul class="nav-ul">
-                            <li><img class="list-icon" src="/img/book.png"><a href="./ade_resp_home.html">Home</a></li> 
-                            <li><img class="list-icon" src="/img/book.png"><a href="./ade_resp_reports.html">Reports</a></li>
-                            <span class="Home-1"><li><img class="list-icon" src="../assets/img/map.png"><a href="">Map</a></li></span>
-                            <li><img class="list-icon" src="/img/drakkar.png"><a href="./ade_resp_teams.html">Teams</a></li>
-                            <li><img class="list-icon" src="/img/treasure.png"><a href="./ade_resp_statistics.html">Statistics</a></li>
+                            <li id="home-url3"><img class="list-icon" src="/img/cabain.png">Home</li> 
+                            <li id="report-url3"><img class="list-icon" src="/img/book.png">Reports</li>
+                            <span class="Home-1"><li id="map-url3"><img class="list-icon" src="/img/map.png">Map</li></span>
+                            <li id="Teams-url3"><img class="list-icon" src="/img/drakkar.png">Teams</li>
+                            
                         </ul>
                     </nav>
                 </div>
@@ -33,22 +34,42 @@
                 </div>
             </div>
             <div class="rest-container">
+                <div class="headerinfo">
+                    <div>
+                        <p>Total incidents cost (DA)</p>
+                     <input id="price" class="price" readonly>
+                    </div>
+                   
+                </div>
                 <div id="map" class="map"></div>
             </div>
         </div>
         
         <script>
+            let value2=document.getElementById('price')
             var popupContent=[];
             var map = L.map('map').setView([36.7631, 3.3399], 10)
             var tileLayer = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
-            var deconstructedData2 = <%-JSON.stringify(deconstructedData)%>;
+           
+            var deconstructedData2 = <%- JSON.stringify(deconstructedData) %>;
+            console.log(deconstructedData2);
+    
              for (var i=0; i<deconstructedData2.length;i++){
-                popupContent[i] = `<div class='custom-popup'><p class='report-nbr'>Report:${deconstructedData2[i][0]}</p><p class='report-ttl'>${deconstructedData2[i][8]}</p><p>Team:${deconstructedData2[i][9]}</p><p>ADE User: ${deconstructedData2[i][14] } ${deconstructedData2[i][13]}</p><p>Cost: ${deconstructedData2[i][7]}DA</p><p>Affected Population: ${deconstructedData2[i][6]}</p></div>`
+                popupContent[i] = `<div class='custom-popup'><p class='report-nbr'>Report:${deconstructedData2[i][15]}</p><p class='report-ttl'>${deconstructedData2[i][8]}</p><p>Team:${deconstructedData2[i][9]}</p><p>ADE User: ${deconstructedData2[i][14] } ${deconstructedData2[i][13]}</p><p>report Status:${deconstructedData2[i][5]}</p><p>Cost: ${deconstructedData2[i][7]}DA</p><p>Affected Population: ${deconstructedData2[i][6]}</p></div>`
              }
-             console.log(popupContent[0]);
+           
              for(var i=0;i<popupContent.length;i++){
             var marker = L.marker([`${deconstructedData2[i][11]}`, `${deconstructedData2[i][10]}`]).addTo(map).bindPopup(popupContent[i]);}
+            var j=0
+            while( j<deconstructedData2.length){
+                var cost =deconstructedData2[j][7]+deconstructedData2[j+1][7]
+                j=j+2
+            }
+            console.log(cost);
+            value2.value=cost;
+
            
         </script>
+        <script src="/javascript/link-manipulator-map.js"></script>
     </body>
 </html>

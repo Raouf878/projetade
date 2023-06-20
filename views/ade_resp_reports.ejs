@@ -12,6 +12,31 @@
         <script src="https://unpkg.com/esri-leaflet-vector@4.0.2/dist/esri-leaflet-vector.js"></script>
         <script src="https://unpkg.com/esri-leaflet-geocoder@3.1.4/dist/esri-leaflet-geocoder.js"></script>
         <script src="/javascript/team_add_info.js"></script>
+        <script>
+            var barcode = '';
+            var interval;
+            document.addEventListener('keydown', function(evt) {
+
+
+                if (interval)
+                    clearInterval(interval);
+                if (evt.code == 'Enter') {
+                    if (barcode)
+                        handleBarcode(barcode);
+                    barcode = '';
+                    return;
+                }
+                if (evt.key != 'Shift')
+                barcode += evt.key;
+                interval = setInterval(() => barcode = '', 30);
+            });
+
+            function handleBarcode(scanned_barcode) {
+                console.log(scanned_barcode);
+            }
+        </script>
+
+
         
         <style>
             @import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@300;500;800&display=swap');
@@ -23,17 +48,20 @@
             </style>
     </head>
     <body>
+        <div id="last-barcode">
+            <!-- The scanned barcode will be injected into this element -->
+            
+          </div>
         <div class="main-container">
             <div id="banner" class="hidden"></div>
             <div class="left-container">
                 <div class="nav-bar">
                     <nav class="nav">
                         <ul class="nav-ul">
-                           <li> <img class="list-icon"src="/img/cabain.png"><a href="./ade_resp_home.html">Home</a></li>
-                           <span class="Home-1"><li> <img class="list-icon"src="/img/book.png"><a href="">Reports</a></li></span> 
-                            <li> <img class="list-icon"src="/img/map.png"><a href="./ade_resp_map.html">Map</a></li>
-                            <li> <img class="list-icon"src="/img/drakkar.png"><a href="./ade_resp_teams.html">Teams</a></li>
-                            <li> <img class="list-icon"src="/img/treasure.png"><a href="./ade_resp_statistics.html">Statistics</a></li>
+                           <li id="home-url2"> <img class="list-icon"src="/img/cabain.png">Home</li>
+                           <span class="Home-1"><li id="report-url2"> <img class="list-icon"src="/img/book.png">Reports</li></span> 
+                            <li id="map-url2"> <img class="list-icon"src="/img/map.png">Map</li>
+                            <li id="Teams-url2"> <img class="list-icon"src="/img/drakkar.png">Teams</li>
                         </ul>
                     </nav>
                 </div>
@@ -79,18 +107,21 @@
                                                 </div>
                                             </div>
                                             <div class="buttons">
-                                                <% if (!DataShown[i][5]){%>
+                                                <% if (DataShown[i][6]==='INITIATED'){%>
                                                     
-                                                    <button class="buton end-button" id="status-button" >END</button>
-                                                    <button class="buton1" id="status-button" >MODIFY</button>
-                                                    <button class="buton2" id="status-button" >DELETE</button>
+                                                    <button class="buton end-button" id="status-button" style="width:80px;background-color: #6c6b6b;color:#ffffff;border:1px solid rgb(255, 255, 255)" disabled>UNSTARTED</button>
+                                                    <button class="buton1 button" id="<%= DataShown[i][0] %>" onclick="update(this.id)" >MODIFY</button>
+                                                    <button class="buton2 delete-button" id="status-button" >DELETE</button>
         
-                                                <% } else {%>
+                                                <% } if(DataShown[i][6]==='ENDED') {%>
                                                     <button class="buton end-button" id="status-button" style="background-color: white;color:#29AB87;border:1px solid black" disabled>ENDED</button>
-                                                    <button class="buton1" id="status-button" >MODIFY</button>
-                                                    <button class="buton2" id="status-button" >DELETE</button>
+                                                    <button class="buton1 button" id="<%=DataShown[i][0] %>" onclick="update(this.id)" >MODIFY</button>
+                                                    <button class="buton2 delete-button" id="status-button" >DELETE</button>
+                                                    <%} if (DataShown[i][6]==='ONGOING'){%>
+                                                    <button class="buton end-button" id="status-button" style="background-color: white;color:#29AB87;border:1px solid black" >END</button>
+                                                    <button class="buton1 button" id="<%= DataShown[i][0] %>" onclick="update(this.id)">MODIFY</button>
+                                                    <button class="buton2 delete-button" id="status-button" >DELETE</button>
                                                     <%}%>
-                                                    
                                                    
 
                                             </div>
@@ -130,7 +161,7 @@
                         <input class="team-input1" id="address" placeholder="Please choose adress from map" readonly>
                         <label>incident Title</label>
                         <input class="team-input1" id="title" placeholder="Please enter accident title" >
-                        <label>incident Description</label>
+                        <label>incident Estimated time (in days)</label>
                         <input class="team-input1" id="desc" placeholder="Please enter incident accident description" >
                         <label>Affected population</label>
                         <input class="team-input1" id="affected" placeholder="How many people are affected" required>
@@ -146,8 +177,9 @@
                     </div>
                         <label>Team</label>
                         <select id="mySelect">
+                            <option disabled selected>Please choose a team</option>
                             <% Team.forEach(function(Team) { %>
-                              <option><%= Team %></option>
+                                <option value="<%= Team[0] %>"><%= Team[0] %>- available in (days): <%= Team[2] %></option>
                             <% }); %>
                         </select>
                     <div class="materials-section">
@@ -180,6 +212,7 @@
                 </div>
                 </div>
             </div>
+            
         </div>
         
         
@@ -248,5 +281,10 @@ materialSections.forEach((materialSection) => {
           <script src="/javascript/team_name_api.js"></script>
           <script src="/javascript/ade-report-scroll.js"></script>
          <script src="/javascript/report-end-report.js"></script>
+         <script src="/javascript/team_delete_info.js"></script>
+         <script src="/javascript/link-manipulator-report.js"></script>
+         <script src="/javascript/report-modify.js"></script>         
+
+
           
     </body>

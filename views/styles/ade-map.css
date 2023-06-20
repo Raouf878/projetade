@@ -134,3 +134,18 @@ p{
     font-size: 16px;
 
 }
+.price{
+    height:20px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border:1px solid black;
+    margin-right: 55px;
+    font-family:'Encode sans' ;
+    padding-left: 5px;
+    
+}
+.headerinfo{
+    display: flex;
+    flex-direction: row;
+}

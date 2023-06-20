@@ -1,0 +1,179 @@
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      
+      h1 {
+        text-align: center;
+        padding: 20px;
+        background-color: #333;
+        color: #fff;
+        margin: 0;
+      }
+      
+      #product-container {
+        max-width: 500px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #f4f4f4;
+        border-radius: 5px;
+      }
+      
+      #add-product-form input[type="text"],
+      #add-product-form input[type="number"] {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+      }
+      
+      #add-product-form button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      
+      #product-list {
+        list-style-type: none;
+        padding: 0;
+        margin-top: 20px;
+      }
+      
+      .product-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        margin-bottom: 10px;
+      }
+      
+      .product-item span {
+        flex-grow: 1;
+      }
+      
+      .product-item button {
+        padding: 5px 10px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      .tablle {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .tablle thead tr th {
+        padding: 10px;
+      }
+      
+      .tablle tbody tr td {
+        padding: 10px;
+      }
+      
+      .tablle tbody tr:not(:last-child) {
+        margin-bottom: 10px;
+      }
+      .report-info{
+        position: absolute;
+        width:700px;
+        height:0%;
+        background-color: white;
+        border:1px solid rgb(75, 75, 75);
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        border-radius:10px;
+        right:25%;
+        bottom:0%;
+        overflow: hidden;
+        opacity: 0;
+        transition: all 0.2s ease-in-out;
+    }
+    .header2{
+        position: absolute;
+        right:0;
+    }
+    .add_info {
+        text-align: center;
+        font-family:sans-serif ;
+        font-weight:800;
+        font-size: 18px;
+
+    }
+    /* Add styles to the table */
+#product-table,.product-table2 {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .product-table2{
+    opacity: 0;
+  }
+  
+  /* Style the table headers */
+  #product-table th {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: left;
+  }
+  .product-table2 th {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  /* Style the table cells */
+  #product-table td {
+    padding: 10px;
+  }
+  .product-table2 td {
+    padding: 10px;
+  }
+  
+  /* Add black lines between rows */
+  #product-table tr {
+    border-bottom: 1px solid black;
+  }
+  .product-table2 tr {
+    border-bottom: 1px solid black;
+  }
+  
+  /* Add hover effect on rows */
+  #product-table tr:hover {
+    background-color: #f9f9f9;
+  }
+  .product-table2 tr:hover {
+    background-color: #f9f9f9;
+  }
+  #pagination {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+   
+  }
+  #pagination a {
+    margin-right:5px;
+    text-decoration: none;
+    color:black;
+    padding:3px;
+    border-radius: 3px;
+    border:1px solid black
+  }
+  
+
+      

@@ -3,11 +3,12 @@ function createObject() {
     const incidentAddress = document.getElementById('address').value;
     const incidentTitle = document.getElementById('title').value;
     const incidentAffected = document.getElementById('affected').value;
+    const estimated_time=document.getElementById('desc').value
     const incidentLan = document.getElementById('Lan').value;
     const incidentLat = document.getElementById('Lat').value;
     const selectElement = document.getElementById('mySelect').value;
   
-    if (teamName === '' || incidentAddress === '' || incidentAffected === '' || incidentLan === '' || incidentLat === '' || selectElement === ''||incidentTitle==='') {
+    if (teamName === '' || incidentAddress === '' || incidentAffected === '' || incidentLan === '' || incidentLat === '' || selectElement === ''||incidentTitle===''|| estimated_time==='') {
     console.log('team',teamName);
     
       alert('Please provide all information');
@@ -31,10 +32,15 @@ function createObject() {
         selectedMaterials.push(selectedMaterial);
 
       });
-      for(let i=1;i<selectedMaterials.length;i++){
-        let TOTAL=selectedMaterials[i][1].total+selectedMaterials[i-1][1].total
-        var TotalPrice={TOTALPRICE:TOTAL}
-      }
+      var TotalPrice = { TOTALPRICE: 0 }; // Initialize TotalPrice outside the loop
+
+for (var i = 0; i < selectedMaterials.length; i++) {
+  if (i === 0) {
+    TotalPrice.TOTALPRICE = selectedMaterials[i][1].total;
+  } else {
+    TotalPrice.TOTALPRICE += selectedMaterials[i][1].total;
+  }
+}
       console.log(TotalPrice.TOTALPRICE);
   
       const data = {
@@ -46,7 +52,8 @@ function createObject() {
         selectedMaterials: selectedMaterials,
         TotalPrice:TotalPrice,
         incidentTitle:incidentTitle,
-        selectElement:selectElement
+        selectElement:selectElement,
+        estimated_time:estimated_time
 
       };
       const currentUrl = window.location.href;
@@ -61,7 +68,7 @@ function createObject() {
       })
       .then(response => {
         if (response.ok) {
-          return response.json();
+          window.location.reload()
         } else {
           throw new Error('Error: ' + response.status);
         }
@@ -77,4 +84,5 @@ function createObject() {
       });
     }
   }
+
   

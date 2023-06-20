@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Client main</title>
+        <link rel="stylesheet" href="/styles/ade-team.css">
+        <script src ='/javascript/ade-team-anim.js'></script>
+        <script src ='/javascript/scrollbar.js'></script>
+        <script src='https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js'></script>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;300;500;800&family=Tilt+Neon&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@300;500&display=swap');
+            @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+            </style>
+        
+    </head>
+    </head>
+    <body>
+    <header class="header">
+        <div class="header-text">
+            <p class="welcome-txt" style="text-align: center;width: 190px;">Welcome Back</p>
+            <p class="team-txt" style="width: 320px;">Team:<%=deconstructedData1[0][3]%></p>
+            <p class="unit-txt" style="width: 170px;">Unit:<%=deconstructedData1[0][4]%></p>
+        </div>
+        <div class="header-pic">
+            <img id ="profile-img" src="/img/user (2).png" style="width:50px;padding-right:19px;">
+        </div>
+    </header>
+    <main style="display: flex;flex-direction: column;">
+        <p class="teambr-txt">Team Members</p>
+        <div class="border-image"></div>
+        
+        <div class="Team-members">
+            <div class="wrapper">
+                <% for (let i =0; i<deconstructedData1.length;i++){%>
+                    <div class="slider">
+                        <img style ="width:35px;"src="/img/technician.png">
+                        <div class="name">
+                            
+                            <p><%=deconstructedData1[i][0]+ ' ' + deconstructedData1[i][1] %> </p>
+                            <p><%=deconstructedData1[i][2]%></p>
+                        </div>
+                        
+                    </div>
+                    
+                    <%}%>
+                
+              </div>
+        </div>
+        <p class="teambr-txt">Your Work</p>
+        <div class="border-image"></div>
+        <div class="report-containe">
+            <% for (let i =0; i<deconstructedData.length;i++){%>
+                <% if(deconstructedData[i][4]==='ONGOING'){%>
+            <div class="report">
+                <div class="report-info">
+                    <div class="top-txt">
+                        <p><%=deconstructedData[i][3]%></p>
+                    </div>
+                    <div class="bottom-txt">
+                        <div class="right-txt">
+                            <p><%=deconstructedData[i][2]%></p>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="report-button" >
+                    <button class="map-btn" onclick="window.location.href = 'https://www.google.com/maps/search/?api=1&query=1600+Amphitheatre+Parkway%2C+CA';" ></button>
+                    <button class="report-btn2" id="<%=deconstructedData[i][1]%>">Code</button>
+                    <button class="report-btn fix" id="<%=deconstructedData[i][0]%>" onclick="EndReport(this.id)" >Fix</button>
+               </div>
+            </div>
+            <%}%>
+            <%}%>
+      
+
+            
+        </div>
+        <p class="teambr-txt">Future Work</p>
+        <div class="border-image"></div>
+        <div class="report-containe">
+            <% for (let i =0; i<deconstructedData.length;i++){%>
+                <% if(deconstructedData[i][4]==='INITIATED'){%>
+            <div class="report">
+                <div class="report-info">
+                    <div class="top-txt">
+                        <p><%=deconstructedData[i][3]%></p>
+                    </div>
+                    <div class="bottom-txt">
+                        <div class="right-txt">
+                            <p><%=deconstructedData[i][2]%></p>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="report-button" >
+                    <button class="map-btn" onclick="window.location.href = 'https://www.google.com/maps/search/?api=1&query=1600+Amphitheatre+Parkway%2C+CA';" ></button>
+                    <button class="report-btn2" id="<%=deconstructedData[i][1]%>">Code</button>
+                    <button class="report-btn Start" id="<%=deconstructedData[i][0]%>" onclick="handleButtonClick(this.id)">Start</button>
+               </div>
+            </div>
+            <%}%>
+            <%}%>
+      
+
+            
+        </div>
+        <div class="report-maker" id="report-page">
+            <div class="details-header" style="border-bottom: 1px gray solid;">
+            <img class="cancel-img" src="/img/close.png" id="cancel-img">
+            <p style="text-align: center;font-weight: 800;font-size: 23px;margin-bottom: 15px;">incident code-bar</p></div>
+            <div class="info-fields">
+                <svg id="barcode"></svg>
+            </div>
+            </div>
+                
+    </main>
+    <footer class="footer"><p class="footer-txt" style="width:160px;">@COPYRIGHT ADE 2023</p></footer>
+    <script src="/javascript/ade-team-fix.js"></script>
+    </body>
+</html>

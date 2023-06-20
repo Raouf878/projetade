@@ -39,6 +39,10 @@ app.use('/Team',require('./routes/report-routes'))
 app.use('/register',require('./routes/login-route'))
 app.use('/LLogin',require('./routes/login-route'))
 app.use('/map',require('./routes/map-route.js'))
+app.use('/ade',require('./routes/ade-team-route.js'))
+app.use('/aade/seller',require('./routes/ade-seller-routes'))
+app.use('/aade',require('./routes/ade-seller-routes'))
+
 
 app.listen(port,()=>{
     console.log(`server running ${port}`);

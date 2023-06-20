@@ -188,6 +188,26 @@ p{
     top:12px;
 
   }
+  .report-btn2{
+    width:70px;
+    height:30px;
+    background-color: rgb(218, 119, 119);
+    border: 0;
+    border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    color: white;
+    font-weight:800 ;
+    font-size: 15px;
+    font-family: 'Space Mono';
+    position: absolute;
+    right: 115px;
+    top:12px;
+
+  }
+  #barcode{
+    margin-top: 15px;
+    margin: auto;
+  }
   .map{
     width: 100%;
      height: 100%;

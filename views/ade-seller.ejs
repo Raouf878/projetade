@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Management</title>
+  <link rel="stylesheet" type="text/css" href="/styles/ade-seller.css">
+  
+<body>
+  <h1>Product Management</h1>
+
+  <div id="product-container">
+    <div id="add-product-form">
+      <input type="text" id="product-name" placeholder="Product Name" required>
+      <input type="text" id="product-price" placeholder="Product Price" required>
+      <button id="Product_save">Add Product</button>
+      <input type="text" id="search-input" style="margin-top:5px;" placeholder="Search Product">
+      <button id="search-button">Search product</button>
+      <button style="margin-top:5px;" id="scanbutton">Scan code</button>
+    </div>
+
+    
+
+   
+  </div>
+  <div id="pagination"></div>
+  <div class="tablle"> <table id="product-table">
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Product Price</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody id="product-list">
+      <% for(let i =0;i<deconstructedData.length;i++){ %>
+        <tr>
+          <td><%=deconstructedData[i][1]%></td>
+          <td><%=deconstructedData[i][2]%></td>
+          <td>
+            <button class="delete-button">Delete</button>
+            <button class="update-button">Update</button>
+          </td>
+        </tr>
+        <%}%>
+        <!-- Add more rows as needed -->
+      </tbody>
+  </table></div>
+  <div class="report-info" id="report-info">
+    <div class="header2">
+        <img style='width:45px; cursor: pointer;' id='close-img'src="/img/close.png">
+    </div>
+    <div class="add_info">
+      Please scan incident code bar</div>
+      <table class="product-table2" id='Opc' >
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+          </tr>
+        </thead>
+        <tbody id="prodcts_table">
+
+        </tbody>
+
+      </table>
+    </div>
+  
+    
+    <script src="/javascript/ade-seller.js"></script>
+    <script src="/javascript/ade-seller-crud.js"></script>
+    <script src="/javascript/ade-seller-pagination.js"></script>
+</body>
+
+<script>
+
+  var StatusButtons = document.getElementById("scanbutton");
+  var ReportInfos = document.getElementById("report-info");
+  var CloseImgs = document.getElementById("close-img");
+  
+          StatusButtons.addEventListener("click", ()=> {
+              ReportInfos.style.height = "70%";
+              ReportInfos.style.opacity = 1;
+              ReportInfos.style.bottom = "25%";
+          });
+
+          CloseImgs.addEventListener("click", ()=> {
+              ReportInfos.style.height = "0%";
+              ReportInfos.style.opacity = 0;
+              ReportInfos.style.bottom = "0%";
+              Opc.style.opacity=0;
+          });
+</script>
+
+
+
+
+</html>

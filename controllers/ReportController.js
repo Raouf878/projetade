@@ -29,7 +29,7 @@ const month = (date.getMonth() + 1).toString().padStart(2, '0');
 const day = date.getDate().toString().padStart(2, '0');
 const max = 1000;
 const randomInt = Math.floor(Math.random() * max);
-const TeamName=`#${(message[0]+message[1]+message[2]+year+month+day+randomInt).toUpperCase()}`
+const TeamName=`${(message[0]+message[1]+message[2]+year+month+day+randomInt).toUpperCase()}`
 res.status(200).json({message:TeamName})
 } )
 const CreateUser = asyncHandler(async (req, res) => {
@@ -92,6 +92,7 @@ const DeleteUser=asyncHandler(async(req,res)=>{
   const teamid=req.params.idteam
   const sql='DELETE FROM team_members WHERE team_ID = (?)';
   const sql1='DELETE FROM team WHERE team_ID = (?)'
+  const sql4='UPDATE accidents SET team_ID=NULL where team_ID = ?'
   const values=[teamid]
   const Query=new Promise((resolve,reject)=>{
     connectDB.query(sql, values, (err, results) => {
@@ -106,14 +107,21 @@ const DeleteUser=asyncHandler(async(req,res)=>{
 });
   Query
   .then(()=>{
-    connectDB.query(sql1, values, (err, results) => {
+    connectDB.query(sql4, values, (err, results) => {
       if (err) {
         console.log(err);
       } else {
-        console.log('member added');
-        res.status(204).send()
+        connectDB.query(sql1, values, (err, results) => {
+          if (err) {
+            console.log(err);
+          } else {
+            console.log('member added');
+            res.status(204).send()
+          }
+        })
       }
     })
+   
     
     
   })

@@ -63,7 +63,7 @@ p{
     padding: 10px;
     transition: all 0.2s ease-in-out;
     margin-left: 30px;
-    cursor: pointer;
+    cursor: pointer !important;
     display: inline-block;
     transform-origin: right top;
     vertical-align: middle;
@@ -76,6 +76,8 @@ p{
     
     
 }
+
+  
 .nav-ul li a{
     text-decoration: none;
     color: white;

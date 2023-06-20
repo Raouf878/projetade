@@ -40,19 +40,14 @@ const LoginUser = asyncHandler(async (req, res) => {
   try {
     const sql = 'SELECT * FROM users WHERE email = ?';
     const values = [email];
-    console.log(values);
     connectDB.query(sql, values, async function(err, result, fields) {
       if (err) throw err;
-      console.log(result);
 
       if (result.length === 0) {
         res.status(401).json({ success: false, message: 'Invalid email or password' });
       } else {
         const user = result[0];
-        console.log(user.password);
-        console.log(password);
         const passwordMatch = await bcrypt.compare(password, user.password);
-        console.log(passwordMatch);
         if (!passwordMatch) {
           
           res.status(400).json({ success: false, message: 'Invalid email or password' });
