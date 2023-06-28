@@ -37,8 +37,8 @@
                         <div class="total-reports">
                         <p>Total reports <br><%=DataShown.length%></p>
                         </div>
-                        <div class="total-reports"><p>Total money spent </p></div>
-                        <div class="total-reports"><p>Total Teams  </p></div>
+                        <div class="total-reports"><p>Total money spent<br><%=deconstructedData2%> DA </p></div>
+                        <div class="total-reports"><p>Total Teams <br><%=deconstructedData.length%> </p></div>
                     </div>
                 </div>
                 </div>
@@ -68,7 +68,7 @@
                                     <div class="buttons">
                                         <div class="priot-img" ><img style='width:40px;'src="/img/prioritize.png"></div>
                                         <div class="prior-but">
-                                            <button class="button" id="status-button">Status</button>
+                                            <button class="button" id="<%=DataShown[i][0]%>" onclick="Download(this.id)">Download</button>
                                         </div>
                                     </div>
                                     
@@ -93,7 +93,7 @@
             </div>
             <%}%>
         </div>
-        <script src="/javascript/report-anim-home.js"></script>
+        <script src="/javascript/report-download-home.js"></script>
         <script src="/javascript/link-manipulator.js"></script>
       
     </body>

@@ -1,6 +1,6 @@
 function CreatArray(Length){
     const rows = Length;
-    const cols = 7;
+    const cols = 5;
     
     const Data = new Array(rows);
     for (let i = 0; i < rows; i++) {
@@ -19,7 +19,7 @@ function datapusher(index_i_value,index_j_value,DataToUse,Data){
 
 }
 function groupNamesByForthValue(data) {
-   const unique =[...new Set(data.map(arr => arr[6]))];
+   const unique =[...new Set(data.map(arr => arr[4]))];
   const uniqueLists = [];
   console.log('this is unique',unique);
 
@@ -27,9 +27,9 @@ function groupNamesByForthValue(data) {
     const list = [];
     const ID_s=[];
     data.forEach(arr => {
-      if (arr[6] === item) {
+      if (arr[4] === item) {
         list.push(` ${arr[1]} ${arr[2]}`);
-        ID_s.push(`${arr[4]}`)
+        ID_s.push(`${arr[3]}`)
         
       }
       
@@ -53,28 +53,21 @@ function PushToArray(PushedData,Length){
                 var R=j;
                 const {
                     id_member,
-                    member_f_name,
-                    member_l_name,
-                    member_email,
+                    full_name,
+                    member_phone_number,
                     team_name,
-                    member_role,
                     team_ID,
                     }=PushedData[i];
                     
                     datapusher(i,j,id_member,array);
                     j++
                     
-                    datapusher(i,j,member_f_name,array);
+                    datapusher(i,j,full_name,array);
                     j++
                    
-                    datapusher(i,j,member_l_name,array);
-                    j++
-                    
-                    datapusher(i,j,member_email,array);
+                    datapusher(i,j,member_phone_number,array);
                     j++
                     datapusher(i,j,team_ID,array);
-                    j++
-                    datapusher(i,j,member_role,array);
                     j++
                     datapusher(i,j,team_name,array);
                     

@@ -28,9 +28,45 @@ const GetProduct=asyncHandler(async(req,res)=>{
         if (err) {throw err}
         else{
         const deconstructedData = results.map(obj => Object.values(obj));
+        console.log(deconstructedData);
         res.render('ade-seller.ejs',  {deconstructedData} );}
        
       });
 
 })
-module.exports={CreateProduct,GetProduct}
+const DeleteProduct=asyncHandler(async(req,res)=>{
+    const id=req.params.id
+    console.log(id);
+    sql='DELETE from materialperaccident where id_material=?'
+    sql2='DELETE from materials where id_material=?'
+    values=[id]
+    connectDB.query(sql,values, (err, results) => {
+        if (err) {res.status(409).send(); console.log(err);}
+        else{
+            connectDB.query(sql2,values, (err, results) => {
+                if (err) {res.status(409).send(); console.log(err);}
+                else{
+                res.status(200).send();}
+               
+              });
+        }
+       
+      });
+})
+const UpdateProduct=asyncHandler(async(req,res)=>{
+    const {
+        product,
+        price
+    }=req.body
+    let id =req.params.id
+    sql='UPDATE materials SET material_name=? , material_cost=? where id_material=?'
+    console.log(product);
+    values=[product,price,id]
+    connectDB.query(sql,values, (err, results) => {
+                if (err) {res.status(409).send(); console.log(err);}
+                else{
+                res.status(200).send();}
+               
+              });
+})
+module.exports={CreateProduct,GetProduct,DeleteProduct,UpdateProduct}

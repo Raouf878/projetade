@@ -35,9 +35,9 @@
         <tr>
           <td><%=deconstructedData[i][1]%></td>
           <td><%=deconstructedData[i][2]%></td>
-          <td>
-            <button class="delete-button">Delete</button>
-            <button class="update-button">Update</button>
+          <td id="<%=deconstructedData[i][0]%>">
+            <button class="delete-button" onclick="deleteRecord('<%= deconstructedData[i][0] %>')">Delete</button>
+            <button class="update-button" data-id="<%= deconstructedData[i][0] %>">Update</button>
           </td>
         </tr>
         <%}%>
@@ -62,6 +62,14 @@
         </tbody>
 
       </table>
+    </div>
+    <div class="modify-section" id="sec">
+      <div class="header2">
+        <img style='width:45px; cursor: pointer;' id='close-img65'src="/img/close.png">
+    </div>
+      <input type="text" id="new_product-name" placeholder="Product Name" required>
+      <input type="text" id="new_product-price" placeholder="Product Price" required>
+      <button id="save">Save</button>
     </div>
   
     
@@ -89,6 +97,78 @@
               Opc.style.opacity=0;
           });
 </script>
+<script>
+  function deleteRecord(id) {
+    const currentUrl = window.location.href;
+  const newUrl = `/aade/delete/${id}/`
+  console.log(newUrl);
+  fetch(`${newUrl}`, {
+    method: 'DELETE'
+  })
+    .then(response => {
+      if (response.ok) {
+        window.location.reload() // Parse the response body as JSON
+      } else {
+        throw new Error('Name invalid');
+      }
+    })
+  }
+  </script>
+  <script>
+   document.addEventListener('DOMContentLoaded', function() {
+  let modifyBtns = document.getElementsByClassName('update-button');
+  let section = document.getElementById('sec');
+  let exit = document.getElementById('close-img65');
+  let save_btn = document.getElementById('save');
+  let id;
+
+  save_btn.onclick = function() {
+    const product=document.getElementById('new_product-name')
+    const price=document.getElementById('new_product-price')
+    if(product.value===''||price.value===''){
+      alert('provide all info')
+    }
+    else {
+      const data={
+        product:product.value,
+        price:price.value
+      }
+    const newUrl = `/aade/update/${id}/`
+  console.log(newUrl);
+  fetch(`${newUrl}`, {
+    method: 'POST',
+    headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+  })
+    .then(response => {
+      if (response.ok) {
+        window.location.reload() // Parse the response body as JSON
+      } else {
+        throw new Error('Name invalid');
+      }
+    })
+  }}
+
+  for (let i = 0; i < modifyBtns.length; i++) {
+    modifyBtns[i].addEventListener('click', function() {
+      section.style.opacity = '1';
+      id = this.getAttribute('data-id'); // Get the id from the data attribute
+    });
+  }
+
+  exit.onclick = function() {
+    section.style.opacity = '0';
+  };
+
+  window.UpdateRecordId = function(recordId) {
+    id = recordId;
+  };
+});
+
+
+  </script>
 
 
 

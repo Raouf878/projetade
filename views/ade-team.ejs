@@ -20,7 +20,7 @@
         <div class="header-text">
             <p class="welcome-txt" style="text-align: center;width: 190px;">Welcome Back</p>
             <p class="team-txt" style="width: 320px;">Team:<%=deconstructedData1[0][3]%></p>
-            <p class="unit-txt" style="width: 170px;">Unit:<%=deconstructedData1[0][4]%></p>
+            <p class="unit-txt" style="width: 170px;">Unit:<%=deconstructedData1[0][5]%></p>
         </div>
         <div class="header-pic">
             <img id ="profile-img" src="/img/user (2).png" style="width:50px;padding-right:19px;">
@@ -37,7 +37,7 @@
                         <img style ="width:35px;"src="/img/technician.png">
                         <div class="name">
                             
-                            <p><%=deconstructedData1[i][0]+ ' ' + deconstructedData1[i][1] %> </p>
+                            <p><%=deconstructedData1[i][1] %> </p>
                             <p><%=deconstructedData1[i][2]%></p>
                         </div>
                         
@@ -65,7 +65,10 @@
                     </div>
                 </div>
                 <div class="report-button" >
-                    <button class="map-btn" onclick="window.location.href = 'https://www.google.com/maps/search/?api=1&query=1600+Amphitheatre+Parkway%2C+CA';" ></button>
+                  
+                    
+                    <button class="map-btn" onclick="window.location.href = 'https://www.google.com/maps/search/?api=1&query=<%= deconstructedData[i][6] %>,<%= deconstructedData[i][5] %>'"></button>
+
                     <button class="report-btn2" id="<%=deconstructedData[i][1]%>">Code</button>
                     <button class="report-btn fix" id="<%=deconstructedData[i][0]%>" onclick="EndReport(this.id)" >Fix</button>
                </div>
@@ -94,7 +97,7 @@
                     </div>
                 </div>
                 <div class="report-button" >
-                    <button class="map-btn" onclick="window.location.href = 'https://www.google.com/maps/search/?api=1&query=1600+Amphitheatre+Parkway%2C+CA';" ></button>
+                    <button class="map-btn" onclick="window.location.href = 'https://www.google.com/maps/search/?api=1&query=<%= deconstructedData[i][6] %>,<%= deconstructedData[i][5] %>'"></button>
                     <button class="report-btn2" id="<%=deconstructedData[i][1]%>">Code</button>
                     <button class="report-btn Start" id="<%=deconstructedData[i][0]%>" onclick="handleButtonClick(this.id)">Start</button>
                </div>

@@ -12,7 +12,6 @@ document.addEventListener("DOMContentLoaded", function() {
       MyBtn[i].onclick = function() {
         var id = this.id; // Get the id value of the clicked button
         console.log("Clicked button id:", id);
-
         MyPage.style.height = "80%";
         MyPage.style.opacity = 1;
         MyPage.style.zIndex = 1;
@@ -35,6 +34,4 @@ document.addEventListener("DOMContentLoaded", function() {
      PrCon.style.display = 'inline';
      MyImg2.style.display='inline';
      PrImgBig.style.display='block'
-    };
-   
-    });
+    };});

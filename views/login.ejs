@@ -49,9 +49,14 @@ try {
   console.log(responseData);
   
   
-  if (responseData.message === 'alger') {
+  if (responseData.role==="responsable ade") {
     window.location.href = `/home/${responseData.id}/${responseData.message}`;
-  } else {
+  } else if(responseData.role==='equipeade'){
+    window.location.href = `/ade/home/${responseData.id}/${responseData.message}`;
+  } else if(responseData.role==='equipeade'){
+    window.location.href = `/ade/home/${responseData.id}/${responseData.message}`;
+  } 
+  else {
     console.error('Error:', responseData.error);
   }
 } catch (error) {

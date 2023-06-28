@@ -20,13 +20,11 @@
                     <div class=form>
                         
 
-                        <label for="email">First Name</label>
+                        <label for="email">Nom complet</label>
                         <div class="container"> 
-                        <input type="text"   id="firstname" name="firstname" placeholder="Enter your First Name" autocomplete="off"> 
+                        <input type="text"   id="firstname" name="firstname" placeholder="Enter your complete Name" autocomplete="off"> 
                         </div>
-                        <label for="password">Last Name</label>
-                        <div class="container">
-                        <input type="text" id="lastname" name="lastname" placeholder="Enter your last name" autocomplete="off">
+                        
                         </div>
                         <label for="password">Email</label>
                         <div class="container">
@@ -39,6 +37,14 @@
                         <label for="password">Unit</label>
                         <div class="container">
                         <input type="text" id="Unit" name="Unit" placeholder="Unit" autocomplete="off">
+                        </div>
+                        <label for="password">Role</label>
+                        <div class="container">
+                          <select id="role" name="roles">
+                            <option value="Responsable ADE">Responsable ADE</option>
+                            <option value="Vendeur ADE">Vendeur ADE</option>
+                            <option value="équipe ADE">équipe ADE</option>
+                          </select>
                         </div>
                         <button type="submit" id="submit">Create new account</button>
                     </div>
@@ -83,16 +89,17 @@ submit.addEventListener('click',async()=>{
 
     await verifyEmail()
     let firstname=document.getElementById('firstname').value;
-    let lastname=document.getElementById('lastname').value;
+    var selectElement = document.getElementById("role");
     let email=document.getElementById('Email').value;
     let password=document.getElementById('password').value;
     let unit=document.getElementById('Unit').value;
+    var selectedValue = selectElement.value;
     let sign=await postData("/register/NewAccount", {
         firstname: firstname,
-        lastname: lastname,
         email: email,
         password: password,
-        unit: unit
+        unit: unit,
+        role:selectedValue
     });
     
 })

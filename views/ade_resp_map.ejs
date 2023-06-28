@@ -55,18 +55,23 @@
             console.log(deconstructedData2);
     
              for (var i=0; i<deconstructedData2.length;i++){
-                popupContent[i] = `<div class='custom-popup'><p class='report-nbr'>Report:${deconstructedData2[i][15]}</p><p class='report-ttl'>${deconstructedData2[i][8]}</p><p>Team:${deconstructedData2[i][9]}</p><p>ADE User: ${deconstructedData2[i][14] } ${deconstructedData2[i][13]}</p><p>report Status:${deconstructedData2[i][5]}</p><p>Cost: ${deconstructedData2[i][7]}DA</p><p>Affected Population: ${deconstructedData2[i][6]}</p></div>`
+                popupContent[i] = `<div class='custom-popup'><p class='report-nbr'>Report:${deconstructedData2[i][14]}</p><p class='report-ttl'>${deconstructedData2[i][8]}</p><p>Team:${deconstructedData2[i][9]}</p><p>ADE User:${deconstructedData2[i][13]}</p><p>report Status:${deconstructedData2[i][5]}</p><p>Cost: ${deconstructedData2[i][7]}DA</p><p>Affected Population: ${deconstructedData2[i][6]}</p></div>`
              }
-           
-             for(var i=0;i<popupContent.length;i++){
+            
+            for(var i=0;i<popupContent.length;i++){
             var marker = L.marker([`${deconstructedData2[i][11]}`, `${deconstructedData2[i][10]}`]).addTo(map).bindPopup(popupContent[i]);}
             var j=0
-            while( j<deconstructedData2.length){
+            if(deconstructedData2.length===1){
+                var cost =deconstructedData2[j][7]
+                value2.value=cost;
+            }else{
+            while( j<deconstructedData2.length-1){
                 var cost =deconstructedData2[j][7]+deconstructedData2[j+1][7]
                 j=j+2
             }
             console.log(cost);
             value2.value=cost;
+        }
 
            
         </script>

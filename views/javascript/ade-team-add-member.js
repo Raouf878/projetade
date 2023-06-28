@@ -87,6 +87,7 @@ const wordList = [];
         const responseData =  response.status;
         console.log(responseData);
         if (responseData === 200) {
+          contacts.length = 0;
           window.location.reload();
         } else {
           console.error('Error:', responseData.error);

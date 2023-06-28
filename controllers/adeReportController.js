@@ -65,6 +65,7 @@ const GetReportName=asyncHandler(async (req,res)=>{
   const max = 1000;
   const randomInt = Math.floor(Math.random() * max);
   const TeamName=`${(message[0]+message[1]+message[2]+randomInt+year+month+day).toUpperCase()}`
+  console.log('name generated',TeamName);
   res.status(200).json({message:TeamName})
   } )
   const CreateReport = asyncHandler(async (req, res) => {

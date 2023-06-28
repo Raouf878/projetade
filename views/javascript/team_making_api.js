@@ -7,7 +7,7 @@ var title=document.getElementById('team-title')
 gen_btn2.onclick=function(){
   console.log("raouf");
   const currentUrl = window.location.href;
-  const newUrl = currentUrl.replace('/home/', '/createReport/');
+  const newUrl = currentUrl.replace('/report/', '/report/Team/');
   console.log(newUrl);
   fetch(`${newUrl}`, {
     method: 'GET'

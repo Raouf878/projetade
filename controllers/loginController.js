@@ -10,15 +10,34 @@ const RegisterUser=asyncHandler(async(req,res) => {
   try{
         const {
             firstname,
-            lastname,
             email,
             password,
-            unit
+            unit,
+            role
         }=req.body;
+        if(role==='équipe ADE'){
+          const lowercaseStr = firstname.toLowerCase();
+          let sql7='UPDATE users SET email=? , password=? where full_name=? AND role="equipeade"'
+          const salt=await bcrypt.genSalt();
+          const HashPass= await bcrypt.hash(password,salt)
+          values=[email,HashPass,lowercaseStr]
+          connectDB.query(sql7,values, (err, result) => {
+            if (err) {
+              console.log(err);
+              res.status(500).send('Internal Server Error');
+            } else {
+                res.status(200).json({
+                    success: true
+                  });
+            }
+          });
+        }
+        else{
         const salt=await bcrypt.genSalt();
         const HashPass= await bcrypt.hash(password,salt )
-        const sql =('INSERT INTO users (first_name, last_name, unit, email, password) VALUES (?, ?, ?, ?,?)');
-        const values=[firstname,lastname,unit,email,HashPass]
+        const sql =('INSERT INTO users (full_name, unit, email, password,role) VALUES (?, ?, ?, ?,?)');
+        const RolelowercaseStr = role.toLowerCase();
+        const values=[firstname,unit,email,HashPass,RolelowercaseStr]
         await connectDB.query(sql,values, (err, result) => {
                     if (err) {
                       console.log(err);
@@ -28,11 +47,11 @@ const RegisterUser=asyncHandler(async(req,res) => {
                             success: true
                           });
                     }
-                  });
+                  })} ;
     }catch(err){
      console.log(err);
      
-    }    
+    }  
 });
 const LoginUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
@@ -53,7 +72,7 @@ const LoginUser = asyncHandler(async (req, res) => {
           res.status(400).json({ success: false, message: 'Invalid email or password' });
         } else {
           const token = jwt.sign({ id: user.id_user }, process.env.JWT_SECRET);
-          res.status(200).json({message:user.unit,id:user.id_user})  
+          res.status(200).json({message:user.unit,id:user.id_user,role:user.role})  
         }
       }
     });
