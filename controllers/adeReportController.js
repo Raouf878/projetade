@@ -472,7 +472,7 @@ const GetReportName=asyncHandler(async (req,res)=>{
         await Promise.all(sqlPromises);
     
         console.log('Finished');
-        // Rest of the code...
+        
     
         res.status(200).json({ success: true });
       } catch (error) {

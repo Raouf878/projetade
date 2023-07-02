@@ -75,7 +75,7 @@
             <div class="rest-container">
                 <div class="header">
                     <div class="search-bar">
-                        <input type="search" placeholder="Search for a team">
+                        <input type="search" id="search-input" placeholder="Search for a team">
                         <div class="search-img"><img src="/img/magnifying-glass.png" style="width:30px;margin-top: 4px;cursor: pointer;"></div>
                     </div>
                     <div class="utility-section">
@@ -300,14 +300,36 @@ const searchControl = L.esri.Geocoding.geosearch({
           }`;
           
 
-          results.addLayer(marker);
-          marker.openPopup();
+          
+         
 
         }
 
       });
       
       
+          </script>
+          <script>
+            document.addEventListener('DOMContentLoaded', function() {
+    var searchInput = document.getElementById('search-input');
+    searchInput.addEventListener('input', function() {
+        var searchTerm = searchInput.value.toLowerCase();
+        filterReports(searchTerm);
+    });
+});
+
+function filterReports(searchTerm) {
+    var reports = document.getElementsByClassName('reports');
+    Array.from(reports).forEach(function(report) {
+        var reportText = report.textContent || report.innerText;
+        var reportMatches = reportText.toLowerCase().includes(searchTerm);
+        if (reportMatches) {
+            report.style.display = 'block';
+        } else {
+            report.style.display = 'none';
+        }
+    });
+}
           </script>
           <script src="/javascript/team_name_api.js"></script>
           <script src="/javascript/ade-report-scroll.js"></script>

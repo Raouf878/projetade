@@ -104,9 +104,11 @@ const DeleteUser=asyncHandler(async(req,res)=>{
   const id_user=req.params.iduser
   const unite=req.params.message;
   const teamid=req.params.idteam
-  const sql='DELETE FROM team_members WHERE team_ID = (?)';
+  /*const sql='DELETE FROM team_members WHERE team_ID = (?)';*/
+  const sql='DELETE FROM users WHERE team_member_id IN (SELECT team_members.id_member FROM team JOIN team_members ON team.team_ID=team_members.team_ID where team.team_ID=?);'
+  const sql3='DELETE FROM team_members WHERE id_member IN (SELECT team_members.id_member FROM team JOIN team_members ON team.team_ID=team_members.team_ID where team.team_ID=?);'
   const sql1='DELETE FROM team WHERE team_ID = (?)'
-  const sql4='UPDATE accidents SET team_ID=NULL where team_ID = ?'
+  const sql4='UPDATE accidents SET team_ID="DELETED" where team_ID = ?'
   const values=[teamid]
   const Query=new Promise((resolve,reject)=>{
     connectDB.query(sql, values, (err, results) => {
@@ -125,6 +127,11 @@ const DeleteUser=asyncHandler(async(req,res)=>{
       if (err) {
         console.log(err);
       } else {
+        connectDB.query(sql3, values, (err, results) => {
+          if (err) {
+            console.log(err);
+          } else{
+
         connectDB.query(sql1, values, (err, results) => {
           if (err) {
             console.log(err);
@@ -133,6 +140,7 @@ const DeleteUser=asyncHandler(async(req,res)=>{
             res.status(204).send()
           }
         })
+      }})
       }
     })
    

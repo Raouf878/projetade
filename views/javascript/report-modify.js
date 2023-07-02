@@ -44,16 +44,33 @@ function update(id){
         estimated_time.value=firstresult[0].estimated_time
         incidentLat.value=firstresult[0].latitude
         incidentLan.value=firstresult[0].longtitude
+        console.log(results);
         for (var i = 0; i < selectElement.options.length; i++) {
             var option = selectElement.options[i];
             
-            // Check if the option's value matches the previously chosen value
+            
             if (option.value === firstresult[0].team_name) {
-              // Set the selectedIndex to the index of the matching option
+              
               selectElement.selectedIndex = i;
-              break; // Exit the loop since the option is found
+              break; 
             }
           }
+          const materialElements = document.querySelectorAll('.one-material-populated');
+
+
+materialElements.forEach((materialElement, index) => {
+  const checkbox = materialElement.querySelector('input[type="checkbox"]');
+  const materialName = materialElement.querySelector('label');
+  const materialValueInput = materialElement.querySelector('.material-nbr');
+  
+
+  materialName.textContent = results[index].material_name;
+
+  checkbox.checked = true; 
+
+  materialValueInput.value = results[index].total;
+  
+});
         
       })
 }

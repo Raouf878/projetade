@@ -29,18 +29,11 @@
                     </nav>
                 </div>
                 <div class="logout-button">
-                    <img src="../assets/img/exit.png" style="width:40px; margin-right:9px;padding-top:9px;">
+                    <img src="/img/exit.png" style="width:40px; margin-right:9px;padding-top:9px;">
                     <p>Logout</p>
                 </div>
             </div>
-            <div class="rest-container">
-                <div class="headerinfo">
-                    <div>
-                        <p>Total incidents cost (DA)</p>
-                     <input id="price" class="price" readonly>
-                    </div>
-                   
-                </div>
+            <div class="rest-container">    
                 <div id="map" class="map"></div>
             </div>
         </div>
@@ -60,18 +53,7 @@
             
             for(var i=0;i<popupContent.length;i++){
             var marker = L.marker([`${deconstructedData2[i][11]}`, `${deconstructedData2[i][10]}`]).addTo(map).bindPopup(popupContent[i]);}
-            var j=0
-            if(deconstructedData2.length===1){
-                var cost =deconstructedData2[j][7]
-                value2.value=cost;
-            }else{
-            while( j<deconstructedData2.length-1){
-                var cost =deconstructedData2[j][7]+deconstructedData2[j+1][7]
-                j=j+2
-            }
-            console.log(cost);
-            value2.value=cost;
-        }
+            
 
            
         </script>

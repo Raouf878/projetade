@@ -53,8 +53,8 @@ try {
     window.location.href = `/home/${responseData.id}/${responseData.message}`;
   } else if(responseData.role==='equipeade'){
     window.location.href = `/ade/home/${responseData.id}/${responseData.message}`;
-  } else if(responseData.role==='equipeade'){
-    window.location.href = `/ade/home/${responseData.id}/${responseData.message}`;
+  } else if(responseData.role==='vendeur ade'){
+    window.location.href = `/aade/seller/${responseData.id}/${responseData.message}`;
   } 
   else {
     console.error('Error:', responseData.error);

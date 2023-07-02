@@ -66,9 +66,10 @@ async function postData(url = '', data = {}) {
   });
   let rdata=await response.json();
   if (response.ok) {
-    window.location.href = '/register';
+
+   console.log(rdata);
   } else {
-    console.error('Error:', rdata.error);
+    alert('your are not assigned to a team please check with your responsible')
   }
 }
 function verifyEmail() {

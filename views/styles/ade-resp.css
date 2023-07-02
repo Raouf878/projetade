@@ -178,7 +178,7 @@ p{
 .text{
     display: flex;
     flex-direction: column;
-    margin-left: 80px;
+    margin-left: 0px;
     
 }
 .text p{
@@ -202,7 +202,7 @@ p{
 .bottom-txt p{
     font-size: 10px;
     margin-top: 13px;
-    width:145px;
+    width:170px;
     
     
 }

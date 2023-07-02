@@ -8,8 +8,8 @@ const mime = require('mime');
 
 const GetInfo = asyncHandler(async (req, res) => {
   const sql = 'SELECT * from accidents JOIN localisation ON accidents.local_ID=localisation.local_ID where id_user=?';
-  const sql2 = 'SELECT * from team where team_unit=?';
-  const sql3='SELECT SUM(accidents.accident_cost) AS total_cost FROM accidents JOIN team ON accidents.team_ID=team.team_ID where team.team_unit=? AND accidents.id_user=?;'
+  const sql2 = 'SELECT DISTINCT team.team_name FROM users JOIN team_members ON users.team_member_id=team_members.id_member JOIN team ON team_members.team_ID = team.team_ID where users.unit=?';
+  const sql3='SELECT SUM(accidents.accident_cost) AS total_cost FROM accidents LEFT JOIN team ON accidents.team_ID=team.team_ID where team.team_unit=? AND accidents.id_user=?;'
   const userId = req.params.iduser;
   const message = req.params.unite;
 values=[userId]
@@ -94,7 +94,7 @@ const downloadPDF=asyncHandler(async(req,res)=>{
   }
   
   // Example data
- sql='SELECT accidents.accident_start_date, accidents.accident_name, localisation.longtitude, localisation.latitude, localisation.address, users.full_name, team.team_name FROM accidents JOIN users ON accidents.id_user = users.id_user JOIN localisation ON accidents.local_ID = localisation.LOCAL_ID JOIN team ON accidents.team_ID = team.team_ID WHERE accidents.acc_ID = ?'
+ sql='SELECT accidents.accident_start_date, accidents.accident_name, localisation.longtitude, localisation.latitude, localisation.address, users.full_name, team.team_name FROM accidents LEFT JOIN users ON accidents.id_user = users.id_user LEFT JOIN localisation ON accidents.local_ID = localisation.LOCAL_ID LEFT JOIN team ON accidents.team_ID = team.team_ID WHERE accidents.acc_ID = ?'
  values=[Id]
  await connectDB.query(sql, values, (err, results) => {
   if (err) {
