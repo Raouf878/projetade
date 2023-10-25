@@ -9,3 +9,7 @@ This page allows the user to declare a new incident, first generating a new uniq
 
 The Map page allows the user to view a detailed summary of all incidents, as well as the sum of costs for all incidents.
 ![image](https://github.com/Raouf878/projetade/assets/110544598/fdf6d3cd-e324-4d52-b190-231d2c453812)
+
+
+the Teams page allows the user to see all the teams available in his unit he can delete a team by clicking on it and then clicking on the delete button next to the search bar.
+![image](https://github.com/Raouf878/projetade/assets/110544598/6258be24-633f-4a5a-953f-78b4c8397955)
