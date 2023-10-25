@@ -10,6 +10,10 @@ This page allows the user to declare a new incident, first generating a new uniq
 The Map page allows the user to view a detailed summary of all incidents, as well as the sum of costs for all incidents.
 ![image](https://github.com/Raouf878/projetade/assets/110544598/fdf6d3cd-e324-4d52-b190-231d2c453812)
 
+Each incident has a unique code which can be viewed by clicking on the "code" button. This code will be used to access the material required for that incident, more details will be explained later.
+
+
+
 
 the Teams page allows the user to see all the teams available in his unit he can delete a team by clicking on it and then clicking on the delete button next to the search bar.
 ![image](https://github.com/Raouf878/projetade/assets/110544598/6258be24-633f-4a5a-953f-78b4c8397955)
@@ -23,6 +27,10 @@ the user can see all his scheduled jobs in the future work  section by clicking 
 ![image](https://github.com/Raouf878/projetade/assets/110544598/428f5447-8e7f-4139-85b9-0ba70424e8c8)
 
 ![image](https://github.com/Raouf878/projetade/assets/110544598/7e8e14fb-923a-4bde-9075-ddd7b13248d5)
+
+Each incident has a unique code which can be viewed by clicking on the "code" button. This code will be used to access the material required for that incident, more details will be explained later.
+
+![image](https://github.com/Raouf878/projetade/assets/110544598/2c7d1fce-591c-4e08-8e5c-7690d06f687a)
 
 
 
