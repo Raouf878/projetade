@@ -33,6 +33,15 @@ Each incident has a unique code which can be viewed by clicking on the "code" bu
 ![image](https://github.com/Raouf878/projetade/assets/110544598/2c7d1fce-591c-4e08-8e5c-7690d06f687a)
 
 
+warehouse management enables product management, making it easy to add new products, delete existing ones and update them accordingly, it also enables incident barcodes to be scanned and accessed by the team member's account, the scan is performed using a physical barcode reader connected to a USB port, when the barcode is successfully scanned, a list of materials required is sent to the user with an indication of each material and the quantity required.
+
+![image](https://github.com/Raouf878/projetade/assets/110544598/7124dcc0-a99a-4464-a7db-f5562e2e925f)
+
+After clicking on the "Scan code" button, a page is displayed asking the user to scan the barcode. If the scanned barcode is found in the database, data will be displayed on the page, otherwise an error will be displayed.
+
+![image](https://github.com/Raouf878/projetade/assets/110544598/d74f200e-62e2-4146-9806-c39c46841eff)
+![image](https://github.com/Raouf878/projetade/assets/110544598/434d04b7-91a9-44b0-b130-9b36163ee261)
+
 
 
 
