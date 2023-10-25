@@ -16,8 +16,14 @@ the Teams page allows the user to see all the teams available in his unit he can
 
 for the ADE Team members they have a special interface for every team.
 
-team account home page, where the user can see all the work assigned to that particular team. 
+team account home page, where the user can see all the work assigned to that particular team.
+
+
+the user can see all his scheduled jobs in the future work  section by clicking on the start button the status will change after completing the job he just needs to click on fix to end the incident.
 ![image](https://github.com/Raouf878/projetade/assets/110544598/428f5447-8e7f-4139-85b9-0ba70424e8c8)
+
+![image](https://github.com/Raouf878/projetade/assets/110544598/7e8e14fb-923a-4bde-9075-ddd7b13248d5)
+
 
 
 
