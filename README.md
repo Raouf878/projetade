@@ -1,5 +1,5 @@
 This project was developped by CHERIBET DROUICHE Abderaouf for the ADE company (Algérienne des eaux) in a 3 month internship.
-
+ADE USER
 The main interface enables users to obtain general information on the number of incidents they have reported, the cost of incidents and the total number of teams available.
 ![image](https://github.com/Raouf878/projetade/assets/110544598/4233dcee-c3ff-4af0-aac5-1fed3264b207)
 
@@ -13,3 +13,12 @@ The Map page allows the user to view a detailed summary of all incidents, as wel
 
 the Teams page allows the user to see all the teams available in his unit he can delete a team by clicking on it and then clicking on the delete button next to the search bar.
 ![image](https://github.com/Raouf878/projetade/assets/110544598/6258be24-633f-4a5a-953f-78b4c8397955)
+
+for the ADE Team members they have a special interface for every team.
+
+team account home page, where the user can see all the work assigned to that particular team. 
+![image](https://github.com/Raouf878/projetade/assets/110544598/428f5447-8e7f-4139-85b9-0ba70424e8c8)
+
+
+
+
